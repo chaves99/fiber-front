@@ -1,0 +1,8 @@
+<form (ngSubmit)="onSubmit()">
+    <input type="text" name="username" [(ngModel)]="loginModel.username" />
+    <br>
+    <input type="password" name="password" [(ngModel)]="loginModel.password" />
+    <br>
+    <input type="submit" value="Login" />
+</form>
+<button><a href="/">Go Back</a></button>

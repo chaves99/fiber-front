@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'fiber-frontend';
+
+  title = 'fiber';
+
+  constructor() {
+  }
+
 }
