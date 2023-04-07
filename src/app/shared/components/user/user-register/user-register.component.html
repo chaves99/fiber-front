@@ -1,0 +1,40 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+    <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" formControlName="name">        
+    </div>
+
+    <div>
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" formControlName="email">
+    </div>
+
+    <div>
+        <label for="goalCalories">Calories Goal</label>
+        <input type="text" name="goalCalories" id="goalCalories" formControlName="goalCalories">
+    </div>
+
+    <div>
+        <label for="goalCarbohydrate">Carbohydrate Goal</label>
+        <input type="text" name="goalCarbohydrate" id="goalCarbohydrate" formControlName="goalCarbohydrate">
+    </div>
+
+    <div>
+        <label for="goalProtein">Protein Goal</label>
+        <input type="text" name="goalProtein" id="goalProtein" formControlName="goalProtein">
+    </div>
+
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" formControlName="password">
+    </div>
+
+    <div>
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" formControlName="confirmPassword">
+    </div>
+
+    <input type="submit" value="Register">
+
+</form>

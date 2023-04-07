@@ -2,13 +2,18 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { loginReducer } from '@core/state/reducers/login.reducer';
-import { StoreModule } from '@ngrx/store';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { AuthenticationInterceptor } from '@core/interceptors/authentication.interceptor';
+import { PagesModule } from './pages/pages.module';
+import { SharedModule } from '@shared/shared.module';
+import { CommonModule } from '@angular/common';
 
+const httpInterceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true}
+];
 
 @NgModule({
   declarations: [
@@ -16,6 +21,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
@@ -24,10 +30,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    StoreModule.forRoot({login: loginReducer}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    HttpClientModule,
+    PagesModule,
+    SharedModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

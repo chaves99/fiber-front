@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Goal Calories</th>
+            <th>Goal Carbs</th>
+            <th>Goal Protein</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userList">
+            <td>{{ user.name }}</td>
+            <td>{{ user.goalCalories }}</td>
+            <td>{{ user.goalCarbohydrate }}</td>
+            <td>{{ user.goalProtein }}</td>
+        </tr>
+    </tbody>
+</table>

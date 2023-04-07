@@ -1,5 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FoodModule } from './components/food/food.module';
+import { UserModule } from './components/user/user.module';
 
 /**
  * The SharedModule should not be providing any services.
@@ -8,9 +11,10 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-  ],
-  providers:[]
+  imports: [],
+  providers: [
+    FoodModule,
+    UserModule
+  ]
 })
 export class SharedModule { }

@@ -1,6 +1,12 @@
-export interface UserModel {
+export interface UserModel extends UserResponseModel {
+    password: string;
+}
+
+export interface UserResponseModel {
     id: number;
     name: string;
     email: string;
-    password: string;
+    goalCalories: number;
+    goalCarbohydrate: number;
+    goalProtein: number;
 }
