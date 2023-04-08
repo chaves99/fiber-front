@@ -23,7 +23,6 @@ export class LoginPageComponent {
     onSubmit(): void {
         console.log(this.loginModel);
         this.loginService.login(this.loginModel).subscribe(res => {
-            console.log(res);
             localStorage.setItem('token', JSON.stringify(res));
             this.router.navigateByUrl('/');
         });

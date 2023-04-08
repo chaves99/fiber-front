@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { UserResponseModel } from "@core/models/user.model";
+import { UserModel, UserResponseModel } from "@core/models/user.model";
 import { UserService } from "@core/service/user.service";
 
 @Component({
@@ -18,6 +18,10 @@ export class UserPageComponent implements OnInit {
         this.userService
             .getAll()
             .subscribe(userList => this.userList = userList);
+    }
+
+    userRegister(model: UserModel): void {
+        console.log(model);
     }
 
 }

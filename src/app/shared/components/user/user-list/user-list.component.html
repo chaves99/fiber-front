@@ -1,18 +1,22 @@
-<table>
+<table border="1">
     <thead>
         <tr>
             <th>Name</th>
-            <th>Goal Calories</th>
-            <th>Goal Carbs</th>
-            <th>Goal Protein</th>
+            <th>Email</th>
+            <th>Weight</th>
+            <th>Weight Unit</th>
+            <th>Height</th>
+            <th>Height Unit</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let user of userList">
             <td>{{ user.name }}</td>
-            <td>{{ user.goalCalories }}</td>
-            <td>{{ user.goalCarbohydrate }}</td>
-            <td>{{ user.goalProtein }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.weight }}</td>
+            <td>{{ user.weightUnit }}</td>
+            <td>{{ user.height }}</td>
+            <td>{{ user.heightUnit }}</td>
         </tr>
     </tbody>
 </table>

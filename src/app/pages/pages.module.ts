@@ -26,7 +26,8 @@ import { UserPageComponent } from './user/user-page.component';
     FormsModule,
     RouterModule,
     FoodModule,
-    UserModule
+    UserModule,
+    // Angular Material
   ]
 })
 export class PagesModule { }

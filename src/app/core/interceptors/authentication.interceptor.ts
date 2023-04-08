@@ -12,7 +12,6 @@ export class AuthenticationInterceptor implements HttpInterceptor {
         let token = localStorage.getItem('token');
         let authParam = req.headers.get(this.HEADER_AUTH_KEY);
 
-        console.log("interceptor - " + token);
         if (token != null && authParam != null) {
             let model = JSON.parse(token) as LoginResponseModel;
             let newReq = req.clone({

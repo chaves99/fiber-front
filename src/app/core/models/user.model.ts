@@ -3,10 +3,11 @@ export interface UserModel extends UserResponseModel {
 }
 
 export interface UserResponseModel {
-    id: number;
+    id: number | null;
     name: string;
     email: string;
-    goalCalories: number;
-    goalCarbohydrate: number;
-    goalProtein: number;
+    weight?: number | null;
+    height?: number | null;
+    weightUnit?: string | null;
+    heightUnit?: string | null;
 }
