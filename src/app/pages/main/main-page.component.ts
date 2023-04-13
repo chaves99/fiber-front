@@ -7,10 +7,16 @@ import { UserService } from "@core/service/user.service";
 })
 export class MainPageComponent implements OnInit {
 
+    sidenavOpened: boolean = false;
+
     constructor(
         private userService: UserService
     ) { }
 
     ngOnInit(): void {
+    }
+
+    menuClick() {
+        this.sidenavOpened = !this.sidenavOpened;
     }
 }

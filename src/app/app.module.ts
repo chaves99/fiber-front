@@ -1,15 +1,19 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { AuthenticationInterceptor } from '@core/interceptors/authentication.interceptor';
+import { SharedModule } from '@shared/shared.module';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthenticationInterceptor } from '@core/interceptors/authentication.interceptor';
 import { PagesModule } from './pages/pages.module';
-import { SharedModule } from '@shared/shared.module';
-import { CommonModule } from '@angular/common';
 
 const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true}
@@ -32,7 +36,12 @@ const httpInterceptorProviders = [
     }),
     HttpClientModule,
     PagesModule,
-    SharedModule
+    SharedModule,
+    // Material Design
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

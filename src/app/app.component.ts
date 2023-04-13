@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,10 @@ export class AppComponent {
 
   title = 'fiber';
 
-  constructor() {
-  }
+  @ViewChild('drawer') matDrawer!: MatDrawer;
 
+  menuClick() {
+    console.log(this.matDrawer);
+    this.matDrawer.toggle();
+  }
 }

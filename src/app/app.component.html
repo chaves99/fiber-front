@@ -1,3 +1,16 @@
-<main>
-  <router-outlet></router-outlet>
+<mat-toolbar style="position: fixed; z-index: 100;">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="menuClick()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Fiber</span>
+</mat-toolbar>
+<main style="background-color: purple; height: 100%;">
+  <mat-drawer-container class="example-container" autosize style="">
+    <mat-drawer #drawer class="example-sidenav" mode="push">
+      <p>Works s,knvsnvksdnvklsdnlk</p>
+    </mat-drawer>
+    <mat-drawer-content>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
 </main>

@@ -1,6 +1,4 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { FoodModule } from './components/food/food.module';
 import { UserModule } from './components/user/user.module';
 
