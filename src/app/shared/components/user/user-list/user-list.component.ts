@@ -7,5 +7,7 @@ import { UserResponseModel } from "@core/models/user.model";
 })
 export class UserListComponent {
 
+    displayedColumns: string[] = ['name', 'email', 'height', 'weight'];
+
     @Input() userList: UserResponseModel[];
 }

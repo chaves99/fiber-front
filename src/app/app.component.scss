@@ -5,6 +5,7 @@
 
 .example-sidenav {
     max-width: 80%;
+    padding-top: 64px
 }
 
 .mat-drawer-content {
@@ -14,6 +15,10 @@
 @media(max-width: 599px) {
 
     .mat-drawer-content {
+        padding-top: 56px
+    }
+
+    .example-sidenav {
         padding-top: 56px
     }
 }
