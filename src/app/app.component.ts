@@ -10,6 +10,13 @@ export class AppComponent {
 
   title = 'fiber';
 
+  links = [
+    { name: 'Home', isActive: true, url: '/', icon: 'home' },
+    { name: 'Login', isActive: true, url: '/login', icon: 'login' },
+    { name: 'User', isActive: false, url: '/user', icon: 'person'  },
+    { name: 'Food', isActive: false, url: '/food', icon: 'restaurant'  },
+  ];
+
   @ViewChild('drawer') matDrawer!: MatDrawer;
 
   menuClick() {

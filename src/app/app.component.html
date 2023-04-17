@@ -6,23 +6,15 @@
 </mat-toolbar>
 
 <div style="background-color: rgb(184, 61, 184); height: 100dvh;">
-  <!-- <mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="over">
-      <p>Works s,knvsnvksdnvklsdnlk</p>
-    </mat-drawer>
-    <mat-drawer-content style="padding-left: 15px; padding-right: 15px;">
-      <router-outlet></router-outlet>
-    </mat-drawer-content>
-  </mat-drawer-container> -->
-
   <mat-sidenav-container class="example-container" autosize>
     <mat-sidenav #drawer class="example-sidenav" mode="over">
       <mat-nav-list role="navigation">
-        <a mat-list-item routerLink="/login">Click here to login</a>
-        
-        <a mat-list-item routerLink="/food">Click here to food</a>
-        
-        <a mat-list-item routerLink="/user">Click here to user</a>
+        <mat-list-item (click)="menuClick()" *ngFor="let link of links" routerLinkActive="link.isActive">
+          <button mat-icon-button matListItemMeta>
+            <mat-icon>{{link.icon}}</mat-icon>
+         </button>
+          <a [routerLink]="link.url" style="padding-left: 15px; padding-right: 15px;">{{ link.name }}</a>
+        </mat-list-item>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content style="padding-left: 15px; padding-right: 15px;">
