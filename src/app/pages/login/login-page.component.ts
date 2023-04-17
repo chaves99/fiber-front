@@ -6,7 +6,8 @@ import { Observable } from "rxjs";
 
 @Component({
     selector: 'fib-login',
-    templateUrl: 'login-page.component.html'
+    templateUrl: 'login-page.component.html',
+    styleUrls:['login-page.component.css']
 })
 export class LoginPageComponent {
 
@@ -21,7 +22,6 @@ export class LoginPageComponent {
 
 
     onSubmit(): void {
-        console.log(this.loginModel);
         this.loginService.login(this.loginModel).subscribe(res => {
             localStorage.setItem('token', JSON.stringify(res));
             this.router.navigateByUrl('/');

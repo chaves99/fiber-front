@@ -8,8 +8,8 @@ import { UserPageComponent } from './user/user-page.component';
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'login', component: LoginPageComponent },
-  { path: 'food', component: FoodPageComponent},
-  {path:'user', component: UserPageComponent}
+  { path: 'food', component: FoodPageComponent },
+  { path: 'user', component: UserPageComponent }
 ];
 
 @NgModule({

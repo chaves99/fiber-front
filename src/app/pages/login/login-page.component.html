@@ -1,11 +1,32 @@
-<form (ngSubmit)="onSubmit()">
-    <input type="text" name="username" [(ngModel)]="loginModel.username" />
-    <br>
-    <input type="password" name="password" [(ngModel)]="loginModel.password" />
-    <br>
-    <input type="submit" value="Login" />
-</form>
-
-<button><a href="/">Go Back</a></button>
-
-<!-- <fib-user-register></fib-user-register> -->
+<div class="main-login-content">
+    <mat-card class="login-content">
+        <mat-card-header>
+            <mat-card-title>
+                Sign in to Fiber
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form (ngSubmit)="onSubmit()">
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Username/E-mail</mat-label>
+                        <input matInput type="text" name="username" [(ngModel)]="loginModel.username" />
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" name="password" [(ngModel)]="loginModel.password" />
+                    </mat-form-field>
+                </p>
+                <button color="accent" mat-flat-button>Submit</button>
+            </form>
+            <br>
+        </mat-card-content>
+    </mat-card>
+    <div class="btn-action">
+        <button mat-flat-button routerLink="/register">Register</button>
+        <br><br>
+        <button mat-flat-button routerLink="/">Go Back</button>
+    </div>
+</div>

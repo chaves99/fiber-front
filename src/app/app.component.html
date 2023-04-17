@@ -9,7 +9,7 @@
   <mat-sidenav-container class="example-container" autosize>
     <mat-sidenav #drawer class="example-sidenav" mode="over">
       <mat-nav-list role="navigation">
-        <mat-list-item (click)="menuClick()" *ngFor="let link of links" routerLinkActive="link.isActive">
+        <mat-list-item (click)="menuClick()" *ngFor="let link of links" >
           <button mat-icon-button matListItemMeta>
             <mat-icon>{{link.icon}}</mat-icon>
          </button>

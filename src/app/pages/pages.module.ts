@@ -1,6 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { FoodModule } from '@shared/components/food/food.module';
 import { UserModule } from '@shared/components/user/user.module';
@@ -26,7 +30,12 @@ import { UserPageComponent } from './user/user-page.component';
     FormsModule,
     RouterModule,
     FoodModule,
-    UserModule
+    UserModule,
+    // Material Design
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule
   ]
 })
 export class PagesModule { }
