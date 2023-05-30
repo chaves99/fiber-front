@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { FormControl } from "@angular/forms";
 import { Router } from "@angular/router";
 import { LoginRequestModel } from "@core/models/login.model";
 import { LoginService } from "@core/service/login.service";
@@ -7,11 +8,13 @@ import { Observable } from "rxjs";
 @Component({
     selector: 'fib-login',
     templateUrl: 'login-page.component.html',
-    styleUrls:['login-page.component.css']
+    styleUrls: ['login-page.component.css']
 })
 export class LoginPageComponent {
 
-    loginModel: LoginRequestModel = { username: '', password: '' };
+    username = new FormControl('');
+
+    password = new FormControl('');
 
     loginModelObservable$: Observable<LoginRequestModel>;
 
@@ -22,10 +25,15 @@ export class LoginPageComponent {
 
 
     onSubmit(): void {
-        this.loginService.login(this.loginModel).subscribe(res => {
-            localStorage.setItem('token', JSON.stringify(res));
-            this.router.navigateByUrl('/');
-        });
+        console.log(this.username);
+        if (this.username.value !== null && this.password.value) {
+            this.loginService
+                .login({ username: this.username.value, password: this.password.value })
+                .subscribe(res => {
+                    localStorage.setItem('token', JSON.stringify(res));
+                    this.router.navigateByUrl('/');
+                });
+        }
     }
 
 }
