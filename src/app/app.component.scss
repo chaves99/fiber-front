@@ -12,6 +12,21 @@
     padding-top: 64px
 }
 
+mat-list-item {
+    padding: 0px;
+    margin: 0px;
+}
+
+.list-item {
+    padding: 0px;
+}
+
+.item-link {
+    margin: 0px;
+    padding-left: 2dvh;
+    padding-right: 2dvh;
+}
+
 @media(max-width: 599px) {
 
     .mat-drawer-content {

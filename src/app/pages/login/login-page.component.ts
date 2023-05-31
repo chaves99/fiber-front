@@ -16,8 +16,6 @@ export class LoginPageComponent {
 
     password = new FormControl('');
 
-    loginModelObservable$: Observable<LoginRequestModel>;
-
     constructor(
         private loginService: LoginService,
         private router: Router
@@ -26,7 +24,7 @@ export class LoginPageComponent {
 
     onSubmit(): void {
         console.log(this.username);
-        if (this.username.value !== null && this.password.value) {
+        if (this.username.value !== null && this.password.value !== null) {
             this.loginService
                 .login({ username: this.username.value, password: this.password.value })
                 .subscribe(res => {

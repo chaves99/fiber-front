@@ -20,7 +20,6 @@ export class AppComponent {
   @ViewChild('drawer') matDrawer!: MatDrawer;
 
   menuClick() {
-    console.log(this.matDrawer);
     this.matDrawer.toggle();
   }
 }

@@ -1,8 +1,8 @@
 
 export class GenericService {
 
-    // protected url: string = "http://172.17.0.3:8989";
-    protected url: string = "http://localhost:8989";
+    protected url: string = "http://172.17.0.3:8989";
+    // protected url: string = "http://localhost:8989";
 
     headerAuth = {
         'Access-Control-Allow-Origin': 'http://localhost:4200',
