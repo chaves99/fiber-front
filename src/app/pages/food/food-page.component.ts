@@ -10,36 +10,16 @@ export class FoodPageComponent implements OnInit {
 
     registering: boolean = false;
 
-    foodEntities: FoodEntity[] = [
-        {
-            id: 1,
-            name: 'test',
-            baseQuantity: 100,
-            calories: 100,
-            carbohydrate: 20,
-            fat: 5,
-            protein: 50
-        },
-        {
-            id: 2,
-            name: 'test - 2',
-            baseQuantity: 100,
-            calories: 100,
-            carbohydrate: 20,
-            fat: 5,
-            protein: 50
-        },
-    ];
+    foodEntities: FoodEntity[] = [];
 
     constructor(
         private foodService: FoodService
     ) { }
 
     ngOnInit(): void {
-        // this.foodService
-        //     .getAllFood()
-        //     .subscribe(foods => this.foodEntities = foods);
-        console.log(this.foodEntities);
+        this.foodService
+            .getAllFood()
+            .subscribe(foods => this.foodEntities = foods);
     }
 
     add(): void {
