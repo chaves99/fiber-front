@@ -1,0 +1,7 @@
+.form {
+    margin-top: 3dvh;
+}
+
+.form mat-form-field {
+    width: 100%;
+}

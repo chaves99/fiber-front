@@ -1,5 +1,5 @@
 export interface FoodEntity {
-    id: number;
+    id?: number;
     name: string;
     baseQuantity: number;
     carbohydrate: number;

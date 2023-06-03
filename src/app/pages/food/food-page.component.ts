@@ -3,9 +3,12 @@ import { FoodEntity } from "@core/models/food.model";
 import { FoodService } from "@core/service/food.service";
 
 @Component({
-    templateUrl: 'food-page.component.html'
+    templateUrl: 'food-page.component.html',
+    styleUrls: ['food-page.component.css']
 })
 export class FoodPageComponent implements OnInit {
+
+    registering: boolean = false;
 
     foodEntities: FoodEntity[] = [
         {
@@ -25,7 +28,7 @@ export class FoodPageComponent implements OnInit {
             carbohydrate: 20,
             fat: 5,
             protein: 50
-        }
+        },
     ];
 
     constructor(
@@ -37,5 +40,16 @@ export class FoodPageComponent implements OnInit {
         //     .getAllFood()
         //     .subscribe(foods => this.foodEntities = foods);
         console.log(this.foodEntities);
+    }
+
+    add(): void {
+        this.registering = true;
+    }
+
+    registerFormSubmit(foodEntity: FoodEntity): void {
+        this.foodService.create(foodEntity).subscribe(fe => {
+            this.foodEntities.push(fe);
+            this.registering = false;
+        });
     }
 }

@@ -16,4 +16,8 @@ export class FoodService extends GenericService {
         return this.http.get<FoodEntity[]>(this.url, { headers: this.headerAuth });
     }
 
+    create(entity: FoodEntity): Observable<FoodEntity> {
+        return this.http.post<FoodEntity>(this.url, entity, { headers: this.headerAuth });
+    }
+
 }

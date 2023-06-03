@@ -1,3 +1,8 @@
-<fib-food-form></fib-food-form>
+<fib-food-form *ngIf="registering" (submitFood)="registerFormSubmit($event)"></fib-food-form>
 <br>
-<fib-food-list [foodList]="foodEntities"></fib-food-list>
+<fib-food-list *ngIf="!registering" [foodList]="foodEntities"></fib-food-list>
+<div *ngIf="!registering" class="register-button">
+    <button mat-fab extended color="primary" (click)="add()">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
