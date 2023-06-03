@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 import { GenericService } from "./generic.service";
 
 @Injectable({ providedIn: 'root' })
-export class LoginService extends GenericService{
+export class LoginService extends GenericService {
 
     constructor(private http: HttpClient) {
         super();

@@ -13,6 +13,10 @@ import { UserModule } from './components/user/user.module';
   providers: [
     FoodModule,
     UserModule
+  ],
+  exports: [
+    FoodModule,
+    UserModule
   ]
 })
 export class SharedModule { }

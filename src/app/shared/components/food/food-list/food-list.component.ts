@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { UserModel, UserResponseModel } from "@core/models/user.model";
+import { FoodEntity } from "@core/models/food.model";
 
 @Component({
     selector: 'fib-food-list',
@@ -7,6 +7,6 @@ import { UserModel, UserResponseModel } from "@core/models/user.model";
 })
 export class FoodListComponent {
 
-    @Input() userList: UserResponseModel[];
+    @Input() foodList: FoodEntity[];
 
 }

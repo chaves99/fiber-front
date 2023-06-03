@@ -7,8 +7,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
-import { FoodModule } from '@shared/components/food/food.module';
-import { UserModule } from '@shared/components/user/user.module';
 import { SharedModule } from '../shared/shared.module';
 import { FoodPageComponent } from './food/food-page.component';
 import { LoginPageComponent } from './login/login-page.component';
@@ -31,8 +29,6 @@ import { UserPageComponent } from './user/user-page.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    FoodModule,
-    UserModule,
     // Material Design
     MatFormFieldModule,
     MatInputModule,
