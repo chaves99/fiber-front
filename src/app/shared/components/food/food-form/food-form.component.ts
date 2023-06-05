@@ -11,11 +11,11 @@ export class FoodFormComponent {
 
     foodForm = new FormGroup({
         name: new FormControl(''),
-        baseQuantity: new FormControl(0),
-        carbohydrate: new FormControl(0),
-        protein: new FormControl(0),
-        fat: new FormControl(0),
-        calories: new FormControl(0),
+        baseQuantity: new FormControl(),
+        carbohydrate: new FormControl(),
+        protein: new FormControl(),
+        fat: new FormControl(),
+        calories: new FormControl(),
     });
 
     @Output() submitFood = new EventEmitter<FoodEntity>;

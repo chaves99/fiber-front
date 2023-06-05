@@ -17,13 +17,14 @@ export class FoodPageComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
+        this.registering = false;
         this.foodService
             .getAllFood()
             .subscribe(foods => this.foodEntities = foods);
     }
 
-    add(): void {
-        this.registering = true;
+    toggle(): void {
+        this.registering = !this.registering;
     }
 
     registerFormSubmit(foodEntity: FoodEntity): void {
