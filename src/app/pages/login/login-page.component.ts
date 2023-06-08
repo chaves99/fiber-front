@@ -1,9 +1,8 @@
 import { Component } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { Router } from "@angular/router";
-import { LoginRequestModel } from "@core/models/login.model";
+import { LocalStorageService } from "@core/service/local-storage.service";
 import { LoginService } from "@core/service/login.service";
-import { Observable } from "rxjs";
 
 @Component({
     selector: 'fib-login',
@@ -18,17 +17,17 @@ export class LoginPageComponent {
 
     constructor(
         private loginService: LoginService,
-        private router: Router
+        private router: Router,
+        private localStorageService: LocalStorageService
     ) { }
 
 
     onSubmit(): void {
-        console.log(this.username);
         if (this.username.value !== null && this.password.value !== null) {
             this.loginService
                 .login({ username: this.username.value, password: this.password.value })
                 .subscribe(res => {
-                    localStorage.setItem('token', JSON.stringify(res));
+                    this.localStorageService.addLoggedUser(res);
                     this.router.navigateByUrl('/');
                 });
         }

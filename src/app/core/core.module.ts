@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LocalStorageService } from './service/local-storage.service';
 
 /**
  * the Core Module is commonly place for singleton services and modules
@@ -7,9 +8,8 @@ import { CommonModule } from '@angular/common';
  */
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule
-  ]
+  ],
 })
 export class CoreModule { }
