@@ -12,23 +12,21 @@ export class AppComponent implements OnInit {
   title = 'fiber';
 
   links = [
-    { name: 'Home', isActive: false, url: '/', icon: 'home' },
-    { name: 'Login', isActive: false, url: '/login', icon: 'login' },
-    { name: 'User', isActive: false, url: '/user', icon: 'person' },
-    { name: 'Food', isActive: false, url: '/food', icon: 'restaurant' },
+    { name: 'Home', url: '/', icon: 'home' }
   ];
 
   linkOff = [
-    { name: 'Home', isActive: false, url: '/', icon: 'home' },
-    { name: 'Login', isActive: false, url: '/login', icon: 'login' },
-    { name: 'User', isActive: false, url: '/user', icon: 'person' },
-    { name: 'Food', isActive: false, url: '/food', icon: 'restaurant' },
+    { name: 'Home', url: '/', icon: 'home' },
+    { name: 'Login', url: '/login', icon: 'login' },
+    { name: 'User', url: '/user', icon: 'person' },
+    { name: 'Food', url: '/food', icon: 'restaurant' },
   ];
 
   linkOn = [
-    { name: 'Home', isActive: false, url: '/', icon: 'home' },
-    { name: 'User', isActive: false, url: '/user', icon: 'person' },
-    { name: 'Food', isActive: false, url: '/food', icon: 'restaurant' },
+    { name: 'Home', url: '/', icon: 'home' },
+    { name: 'User', url: '/user', icon: 'person' },
+    { name: 'Food', url: '/food', icon: 'restaurant' },
+    { name: 'Logout', url: '/logout', icon: 'logout' }
   ];
 
   @ViewChild('drawer') matDrawer!: MatDrawer;
@@ -36,18 +34,23 @@ export class AppComponent implements OnInit {
   constructor(
     private localStorageService: LocalStorageService
   ) {
+    this.localStorageService.init();
     effect(() => {
-      let login = this.localStorageService.item();
-      if (login === null) {
-        this.links = this.linkOff;
-      } else {
-        this.links = this.linkOn;
-      }
+      this.updateSidenav();
     });
   }
 
+  private updateSidenav() {
+    let login = this.localStorageService.item();
+    console.log('effects: ' + login);
+    if (login === null) {
+      this.links = this.linkOff;
+    } else {
+      this.links = this.linkOn;
+    }
+  }
+
   ngOnInit(): void {
-    
   }
 
   menuClick() {

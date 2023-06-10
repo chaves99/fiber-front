@@ -1,6 +1,5 @@
 import { Injectable, signal } from "@angular/core";
-import { LoginResponseModel } from '@core/models/login.model'
-import { UserResponseModel } from "@core/models/user.model";
+import { LoginResponseModel } from '@core/models/login.model';
 
 @Injectable({ providedIn: 'root' })
 export class LocalStorageService {
@@ -27,6 +26,14 @@ export class LocalStorageService {
         localStorage.removeItem(this.key);
         localStorage.clear();
         this.item.set(null);
+    }
+
+    init(): void {
+        let token = localStorage.getItem(this.key);
+        if (token !== null) {
+            let model: LoginResponseModel = JSON.parse(token);
+            this.item.set(model);
+        }
     }
 
 }
