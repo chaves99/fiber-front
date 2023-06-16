@@ -22,7 +22,7 @@ export class LocalStorageService {
         this.item.set(user);
     }
 
-    logOut(): void {
+    logout(): void {
         localStorage.removeItem(this.key);
         localStorage.clear();
         this.item.set(null);

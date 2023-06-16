@@ -42,7 +42,6 @@ export class AppComponent implements OnInit {
 
   private updateSidenav() {
     let login = this.localStorageService.item();
-    console.log('effects: ' + login);
     if (login === null) {
       this.links = this.linkOff;
     } else {
