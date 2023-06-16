@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FoodModule } from './components/food/food.module';
+import { MealModule } from './components/meal/meal.module';
 import { UserModule } from './components/user/user.module';
 
 /**
@@ -12,11 +13,13 @@ import { UserModule } from './components/user/user.module';
   imports: [],
   providers: [
     FoodModule,
-    UserModule
+    UserModule,
+    MealModule
   ],
   exports: [
     FoodModule,
-    UserModule
+    UserModule,
+    MealModule
   ]
 })
 export class SharedModule { }
