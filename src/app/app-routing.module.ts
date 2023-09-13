@@ -1,9 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PagesModule } from './pages/pages.module';
 
 const routes: Routes = [
-  { path: '', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) }
+  // {
+  //   path: '',
+  //   redirectTo: 'feature',
+  //   pathMatch: 'full'
+  // },
+  {
+    path: 'feature',
+    loadChildren: () => import('./feature/feature.module').then(m => m.FeatureModule),
+  }
 ];
 
 @NgModule({
