@@ -2,10 +2,6 @@ import { Component } from "@angular/core";
 
 @Component({
     selector: 'fib-feature',
-    template: 
-        `
-            <b>Feature Works!</b>
-            <router-outlet></router-outlet>
-        `
+    templateUrl: 'feature.component.html'
 })
 export class FeatureComponent {}

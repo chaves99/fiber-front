@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { FeatureRoutingModule } from './feature-routing.module';
 import { FeatureComponent } from './feature.component';
+import { SharedModule } from '../shared/shared.module';
+import { MenubarComponent } from '../shared/menubar/menubar.component';
 
 
 @NgModule({
@@ -11,7 +13,8 @@ import { FeatureComponent } from './feature.component';
   ],
   imports: [
     CommonModule,
-    FeatureRoutingModule
+    FeatureRoutingModule,
+    SharedModule
   ]
 })
 export class FeatureModule { }
