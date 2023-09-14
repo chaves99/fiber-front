@@ -1,3 +1,3 @@
 export class AppDefault {
-    public readonly APP_NAME = "Fiber App"
+    public static readonly APP_NAME: string = "Fiber App"
 }
