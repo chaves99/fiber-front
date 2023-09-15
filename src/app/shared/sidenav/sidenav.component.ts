@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
-import { MENU_LIST } from 'src/app/core/models/menu-list.model';
+import { MenuListModel } from 'src/app/core/models/menu-list.model';
 import { SidenavService } from 'src/app/core/services/sidenav.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class SidenavComponent implements OnInit {
 
   @ViewChild('drawer', { static: true }) matDrawer!: MatDrawer;
 
-  menuList = MENU_LIST;
+  menuList = MenuListModel.MENU_LIST;
 
   constructor(
     private sidenavService: SidenavService
