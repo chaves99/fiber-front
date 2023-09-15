@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FeatureComponent } from './feature.component';
+import { canActivateAuth } from '../core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -9,7 +10,8 @@ const routes: Routes = [
     children: [
       {
         path: 'user',
-        loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+        loadChildren: () => import('./user/user.module').then(m => m.UserModule),
+        canActivate: [canActivateAuth]
       },
       {
         path: 'food',

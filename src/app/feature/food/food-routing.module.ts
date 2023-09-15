@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FoodListComponent } from './food-list/food-list.component';
-import { FoodMainComponent } from './food-main/food-main.component';
+import { FoodListComponent } from './components/food-list/food-list.component';
+import { FoodMainComponent } from './components/food-main/food-main.component';
 import { FoodComponent } from './food.component';
 
 const routes: Routes = [
   {
     path: '',
     component: FoodComponent,
-    pathMatch: 'full',
     children: [
       {
         path: 'main',
         component: FoodMainComponent,
-        pathMatch: 'full'
       },
       {
         path: 'list',

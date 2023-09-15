@@ -12,7 +12,7 @@ export class SidenavComponent implements OnInit {
 
   @ViewChild('drawer', { static: true }) matDrawer!: MatDrawer;
 
-  menuList = MenuListModel.MENU_LIST;
+  menuList = MenuListModel.MENU_LIST.filter(m => m.isVisible);
 
   constructor(
     private sidenavService: SidenavService
