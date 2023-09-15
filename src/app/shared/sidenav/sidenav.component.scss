@@ -3,7 +3,13 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
-    padding: 16px;
+    padding: 16px 0px;
+}
+
+.menu-list-item {
+    padding-left: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
 @media (min-width: 599px) {

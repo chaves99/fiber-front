@@ -1,6 +1,13 @@
 <mat-sidenav-container>
     <mat-sidenav #drawer>
-        inside sidenav
+        <mat-nav-list>
+            <mat-list-item *ngFor="let link of menuList">
+               <a class="menu-list-item" matListItemTitle routerLink="{{link.url}}">{{ link.description }}</a>
+               <button mat-icon-button  matListItemMeta>
+                  <mat-icon>{{link.icon}}</mat-icon>
+               </button>
+            </mat-list-item>
+          </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
         sidenav works!!
