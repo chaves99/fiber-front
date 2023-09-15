@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppDefault } from 'src/app/core/constants/app-default';
+import { SidenavService } from 'src/app/core/services/sidenav.service';
 
 @Component({
   selector: 'fib-menubar',
@@ -10,16 +11,12 @@ export class MenubarComponent {
 
   appName: string = AppDefault.APP_NAME;
 
-  @Output() menuClickedEvent = new EventEmitter<any>();
+  constructor(
+    private sidenavService: SidenavService
+  ) { }
 
   menuButtonClicked(): void {
-    // this.menuClickedEvent.emit();
-    /**
-     * It needs to create a kind of event 
-     * that isn't relationated with parent and child,
-     * because menubar isn't child nor paretn of sidenav
-     * maybe signal
-     */
+    this.sidenavService.toggle();
   }
 
 }
