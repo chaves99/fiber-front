@@ -6,3 +6,9 @@ mat-sidenav {
     padding: 16px;
 }
 
+@media (min-width: 599px) {
+    mat-sidenav-container {
+        height: calc(100% - 64px);
+    }
+}
+
