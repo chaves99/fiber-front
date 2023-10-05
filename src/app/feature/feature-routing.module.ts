@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FeatureComponent } from './feature.component';
 import { canActivateAuth } from '../core/guards/auth.guard';
+import { FeatureComponent } from './feature.component';
 
 const routes: Routes = [
   {
