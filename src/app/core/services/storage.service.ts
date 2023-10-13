@@ -9,11 +9,18 @@ export abstract class StorageService {
 
 export class StorageServiceImpl extends StorageService {
 
+    private readonly USER_KEY: string = 'USER_KEY';
+
     override setUser(user: UserModel): void {
-        throw new Error("Method not implemented.");
+        let userJson: string = JSON.stringify(user);
+        localStorage.setItem(this.USER_KEY, userJson);
     }
 
     override getUser(): UserModel | undefined {
+        let user = localStorage.getItem(this.USER_KEY);
+        if (user !== null) {
+            return JSON.parse(user);
+        }
         return undefined;
     }
 

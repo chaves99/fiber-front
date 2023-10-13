@@ -1,3 +1,7 @@
+export enum MenuListEnum {
+    USER, FOOD, LOGIN
+}
+
 interface MenuListInterface {
     url: string;
     description: string;
@@ -6,37 +10,30 @@ interface MenuListInterface {
     isVisible: boolean;
 }
 
-export enum MenuListEnum {
-    USER, FOOD, LOGIN
+export function getMenuByType(type: MenuListEnum): MenuListInterface | undefined {
+    return menuList.find(ml => ml.type===type);
 }
 
-export class MenuListModel {
-
-    public static readonly MENU_LIST: MenuListInterface[] = [
-        {
-            url: 'user',
-            description: 'User',
-            icon: 'person',
-            type: MenuListEnum.USER,
-            isVisible: true
-        },
-        {
-            url: 'food',
-            description: 'Food',
-            icon: 'restaurant',
-            type: MenuListEnum.FOOD,
-            isVisible: true
-        },
-        {
-            url: 'login',
-            description: 'Login',
-            icon: 'passkey',
-            type: MenuListEnum.LOGIN,
-            isVisible: false
-        }
-    ];
-
-    public static getByType(menuType: MenuListEnum): MenuListInterface | undefined {
-        return this.MENU_LIST.find(m => m.type === menuType);
+export const menuList: MenuListInterface[] = [
+    {
+        url: 'user',
+        description: 'User',
+        icon: 'person',
+        type: MenuListEnum.USER,
+        isVisible: true
+    },
+    {
+        url: 'food',
+        description: 'Food',
+        icon: 'restaurant',
+        type: MenuListEnum.FOOD,
+        isVisible: true
+    },
+    {
+        url: 'login',
+        description: 'Login',
+        icon: 'lock_open',
+        type: MenuListEnum.LOGIN,
+        isVisible: false
     }
-}
+]

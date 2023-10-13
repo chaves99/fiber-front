@@ -1,0 +1,52 @@
+.login-container {
+    /* background-color: antiquewhite; */
+    padding: 5px 20px;
+}
+
+.login-container h2 {
+    text-align: center;
+}
+
+.login-form {
+    /* background-color: bisque; */
+}
+
+.login-fields {
+    width: 100%;
+    margin: auto;
+}
+
+.login-button {
+    width: 100%;
+}
+
+// ###########################################################
+
+@media (min-width: 599px) {
+    .login-container {
+        /* background-color: antiquewhite; */
+        padding: 25px 50px;
+    }
+
+    .login-form {
+        /* background-color: bisque; */
+        width: 70%;
+        margin: auto;
+    }
+}
+
+@media (min-width: 999px) {
+    .login-form {
+        /* background-color: bisque; */
+        width: 40%;
+        margin: auto;
+    }
+}
+
+@media (min-width: 1400px) {
+    .login-form {
+        /* background-color: bisque; */
+        width: 30%;
+        margin: auto;
+    }
+}

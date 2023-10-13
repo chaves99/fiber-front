@@ -1,16 +1,18 @@
+<div class="login-container">
+    <h2>Login</h2>
+    <form (ngSubmit)="login()" class="login-form">
+        <mat-form-field class="login-fields">
+            <mat-label>Username/Email</mat-label>
+            <input matInput [(ngModel)]="username" name="username">
+            <mat-icon matSuffix></mat-icon>
+        </mat-form-field>
 
-<form (ngSubmit)="login()">
-    <mat-form-field>
-        <mat-label>Username/Email</mat-label>
-        <input matInput [(ngModel)]="username" name="username">
-        <mat-icon matSuffix></mat-icon>
-    </mat-form-field>
+        <mat-form-field class="login-fields">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" [(ngModel)]="password" name="password">
+            <mat-icon matSuffix></mat-icon>
+        </mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput type="password" [(ngModel)]="password" name="password">
-        <mat-icon matSuffix></mat-icon>
-    </mat-form-field>
-
-    <button mat-raised-button type="submit">Submit</button>
-</form>
+        <button class="login-button" mat-fab extended type="submit">Submit</button>
+    </form>
+</div>

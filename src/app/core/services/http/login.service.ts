@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { UserModel } from "../../models/user.model";
 import { Injectable } from "@angular/core";
+import { URL } from "@core/constants/backend";
 
 export abstract class LoginService {
 
@@ -18,7 +19,7 @@ export class LoginServiceImpl extends LoginService {
     }
 
     override login(username: string, password: string): Observable<UserModel> {
-        return this.http.post<UserModel>('http://172.17.0.3:8989/user/login', { username: username, password: password });
+        return this.http.post<UserModel>(`${URL}/user/login`, { username: username, password: password });
     }
 
 }
