@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { MatCardModule } from '@angular/material/card';
 import { SharedModule } from '../shared/shared.module';
 import { FeatureRoutingModule } from './feature-routing.module';
 import { FeatureComponent } from './feature.component';
@@ -13,7 +14,8 @@ import { FeatureComponent } from './feature.component';
   imports: [
     CommonModule,
     FeatureRoutingModule,
-    SharedModule
+    SharedModule,
+    MatCardModule
   ]
 })
 export class FeatureModule { }

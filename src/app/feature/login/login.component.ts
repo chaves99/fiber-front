@@ -23,7 +23,6 @@ export class LoginComponent {
   ) { }
 
   login() {
-    console.log(this.activatedRoute);
     this.loginService.login(this.username, this.password).subscribe(user => {
       this.storageService.setUser(user);
       let menu = getMenuByType(MenuListEnum.USER)
