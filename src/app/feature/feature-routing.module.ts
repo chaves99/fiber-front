@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { canActivateAuth } from '../core/guards/auth.guard';
 import { FeatureComponent } from './feature.component';
+import { UserComponent } from './user/user.component';
+import { FoodComponent } from './food/food.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -10,16 +13,18 @@ const routes: Routes = [
     children: [
       {
         path: 'user',
-        loadChildren: () => import('./user/user.module').then(m => m.UserModule),
+        component: UserComponent,
         canActivate: [canActivateAuth]
+
       },
       {
         path: 'food',
-        loadChildren: () => import('./food/food.module').then(m => m.FoodModule)
+        component: FoodComponent,
+        canActivate: [canActivateAuth]
       },
       {
         path: 'login',
-        loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+        component: LoginComponent
       }
     ]
   }

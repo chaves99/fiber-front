@@ -2,8 +2,9 @@ import { Component } from "@angular/core";
 
 @Component({
     selector: 'fib-food',
-    template:'<router-outlet></router-outlet>'
+    templateUrl: 'food.component.html'
 })
 export class FoodComponent {
+
 
 }

@@ -1,12 +1,25 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { FullUserModel } from "@core/models/user.model";
+import { UserService } from "@core/services/http/user.service";
+import { StorageService } from "@core/services/storage.service";
 
 @Component({
     selector: 'fib-user',
-    template: `
-        user works!
-        <router-outlet></router-outlet>
-    `
+    templateUrl: 'user.component.html'
 })
-export class UserComponent {
+export class UserComponent implements OnInit {
+
+    user?: FullUserModel;
+
+    constructor(
+        private userService: UserService,
+        private storageService: StorageService
+    ){}
+
+    ngOnInit(): void {
+        let user = this.storageService.getUser();
+        if (user && user.id) 
+            this.userService.getById(user.id).subscribe(u => this.user = u);
+    }
 
 }

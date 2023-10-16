@@ -11,7 +11,6 @@ export class AuthInterceptor implements HttpInterceptor {
     ) {}
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        console.log(`AuthInterceptor - req:${req.headers}`);
         let user = this.storageService.getUser();
         if (user !== undefined && user.token) {
             return next.handle(req.clone({ setHeaders: { Authorization: user.token } }));
