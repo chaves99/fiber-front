@@ -1,0 +1,16 @@
+.parent-card {
+    width: 100%;
+    margin: auto;
+}
+
+@media (min-width: 599px) {
+    .parent-card {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1299px) {
+    .parent-card {
+        width: 60%;
+    }
+}

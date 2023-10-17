@@ -18,7 +18,7 @@ class AuthGuardService {
 
         let url = getMenuByType(MenuListEnum.LOGIN);
         if (url !== undefined) {
-            return this.router.createUrlTree([route.firstChild?.url, url.url]);
+            return this.router.createUrlTree(['feature', url.url]);
         }
         return false;
     }

@@ -5,7 +5,8 @@ import { StorageService } from "@core/services/storage.service";
 
 @Component({
     selector: 'fib-user',
-    templateUrl: 'user.component.html'
+    templateUrl: 'user.component.html',
+    styleUrls: ['user.component.scss']
 })
 export class UserComponent implements OnInit {
 
@@ -19,7 +20,10 @@ export class UserComponent implements OnInit {
     ngOnInit(): void {
         let user = this.storageService.getUser();
         if (user && user.id) 
-            this.userService.getById(user.id).subscribe(u => this.user = u);
+            this.userService.getById(user.id).subscribe(u => {
+                console.log(u);
+                this.user = u;
+            });
     }
 
 }
