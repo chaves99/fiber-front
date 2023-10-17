@@ -1,1 +1,4 @@
-food works!
+<mat-list *ngFor="let food of foodsModel">
+    <mat-list-item role="listitem">{{food.name}}</mat-list-item>
+    <mat-divider></mat-divider>
+</mat-list>
