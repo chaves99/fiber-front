@@ -1,0 +1,22 @@
+<h2>Seasons</h2>
+<!-- <mat-list *ngFor="let season of seasons">
+    <mat-list-item role="listitem">
+        <div matListItemTitle>{{ season.name }}</div>
+        <div matListItemLine>{{ season.description }}</div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+</mat-list> -->
+<mat-card *ngFor="let season of seasons" class="card-parent">
+    <mat-card-header>
+        <mat-card-title>{{ season.name }}</mat-card-title>
+        <mat-card-subtitle>{{ season.initialDate }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{ season.description }}</p>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <a [routerLink]="['detail', season.id]" mat-raised-button color="primary">
+            Details
+        </a>
+    </mat-card-actions>
+</mat-card>

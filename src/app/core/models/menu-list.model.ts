@@ -1,5 +1,5 @@
 export enum MenuListEnum {
-    USER, FOOD, LOGIN
+    USER, FOOD, LOGIN, DAILY
 }
 
 interface MenuListInterface {
@@ -12,6 +12,12 @@ interface MenuListInterface {
 
 export function getMenuByType(type: MenuListEnum): MenuListInterface | undefined {
     return menuList.find(ml => ml.type===type);
+}
+
+export function getUrlByType(type: MenuListEnum): string | undefined {
+    let menu = getMenuByType(type);
+    if (menu) return menu.url;
+    return undefined;
 }
 
 export const menuList: MenuListInterface[] = [
@@ -35,5 +41,12 @@ export const menuList: MenuListInterface[] = [
         icon: 'lock_open',
         type: MenuListEnum.LOGIN,
         isVisible: false
+    },
+    {
+        url: 'dialy',
+        description: 'Dialy Log',
+        icon: 'library_books',
+        type: MenuListEnum.DAILY,
+        isVisible: true
     }
 ]

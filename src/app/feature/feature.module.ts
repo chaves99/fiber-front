@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { SharedModule } from '../shared/shared.module';
@@ -14,6 +15,8 @@ import { FeatureComponent } from './feature.component';
 import { FoodComponent } from './food/food.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
+import { DailyComponent } from './daily/daily.component';
+import { DailyDetailComponent } from './daily-detail/daily-detail.component';
 
 
 @NgModule({
@@ -21,7 +24,9 @@ import { UserComponent } from './user/user.component';
     FeatureComponent,
     UserComponent,
     FoodComponent,
-    LoginComponent
+    LoginComponent,
+    DailyComponent,
+    DailyDetailComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +40,8 @@ import { UserComponent } from './user/user.component';
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatIconModule
   ]
 })
 export class FeatureModule { }

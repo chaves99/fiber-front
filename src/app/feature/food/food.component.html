@@ -1,4 +1,6 @@
 <mat-list *ngFor="let food of foodsModel">
-    <mat-list-item role="listitem">{{food.name}}</mat-list-item>
+    <mat-list-item role="listitem" (click)="edit(food)">
+        {{ food.name }}
+    </mat-list-item>
     <mat-divider></mat-divider>
 </mat-list>

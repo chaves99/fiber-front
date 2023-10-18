@@ -21,7 +21,6 @@ export class UserComponent implements OnInit {
         let user = this.storageService.getUser();
         if (user && user.id) 
             this.userService.getById(user.id).subscribe(u => {
-                console.log(u);
                 this.user = u;
             });
     }

@@ -18,4 +18,8 @@ export class FoodComponent implements OnInit {
         this.foodService.getAll().subscribe(f => this.foodsModel = f);
     }
 
+    edit(food: FoodModel) {
+        console.log(food);
+    }
+
 }
