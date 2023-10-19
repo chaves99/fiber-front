@@ -8,6 +8,7 @@ import { FoodComponent } from './food/food.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { DailyDetailComponent } from './daily-detail/daily-detail.component';
+import { AddMealComponent } from './add-meal/add-meal.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
       {
         path: getUrlByType(MenuListEnum.DAILY) + "/detail/:seasonId",
         component: DailyDetailComponent
+      },
+      {
+        path: getUrlByType(MenuListEnum.ADD_MEAL),
+        component: AddMealComponent
       }
     ]
   }

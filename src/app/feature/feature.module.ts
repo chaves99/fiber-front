@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { DailyComponent } from './daily/daily.component';
 import { DailyDetailComponent } from './daily-detail/daily-detail.component';
+import { AddMealComponent } from './add-meal/add-meal.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { DailyDetailComponent } from './daily-detail/daily-detail.component';
     FoodComponent,
     LoginComponent,
     DailyComponent,
-    DailyDetailComponent
+    DailyDetailComponent,
+    AddMealComponent
   ],
   imports: [
     CommonModule,

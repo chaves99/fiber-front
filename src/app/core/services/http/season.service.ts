@@ -12,11 +12,11 @@ export class SeasonService {
     ) { }
 
     getByIdUser(idUser: number): Observable<SeasonModel[]> {
-        return this.http.get<SeasonModel[]>(`${URL}/season/${idUser}`);
+        return this.http.get<SeasonModel[]>(`${URL}/season/user/${idUser}`);
     }
 
-    getActiveByIdUser(idUser: number): Observable<SeasonModel[]> {
-        return this.http.get<SeasonModel[]>(`${URL}/season/active/${idUser}`);
+    getActiveByIdUser(idUser: number): Observable<SeasonModel> {
+        return this.http.get<SeasonModel>(`${URL}/season/active/${idUser}`);
     }
 
     create(model: SeasonCreateModel): Observable<SeasonModel> {
@@ -25,6 +25,10 @@ export class SeasonService {
 
     updateFinalDate(dateText: string, seasonId: number): Observable<SeasonModel>  {
         return this.http.put<SeasonModel>(`${URL}/season/final-date/${seasonId}`, dateText);
+    }
+
+    getSeasonById(id: number): Observable<SeasonModel> {
+        return this.http.get<SeasonModel>(`${URL}/season/${id}`);
     }
 
 }

@@ -1,5 +1,5 @@
 export enum MenuListEnum {
-    USER, FOOD, LOGIN, DAILY
+    USER, FOOD, LOGIN, DAILY, ADD_MEAL
 }
 
 interface MenuListInterface {
@@ -47,6 +47,13 @@ export const menuList: MenuListInterface[] = [
         description: 'Dialy Log',
         icon: 'library_books',
         type: MenuListEnum.DAILY,
+        isVisible: true
+    },
+    {
+        url: 'add-meal',
+        description: 'Add Meal',
+        icon: 'add',
+        type: MenuListEnum.ADD_MEAL,
         isVisible: true
     }
 ]
