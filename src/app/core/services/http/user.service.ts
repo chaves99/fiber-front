@@ -12,19 +12,23 @@ export class UserService {
     ) { }
 
     getById(id: number): Observable<FullUserModel> {
-        return this.http.get<FullUserModel>(`${URL}/user/${id}`);
+        return this.http
+            .get<FullUserModel>(`${URL}/user/${id}`);
     }
 
     updateById(model: UpdateUserModel, id: number): Observable<FullUserModel> {
-        return this.http.put<FullUserModel>(`${URL}/user/${id}`, model);
+        return this.http
+            .put<FullUserModel>(`${URL}/user/${id}`, model);
     }
 
     getAll(): Observable<FullUserModel[]> {
-        return this.http.get<FullUserModel[]>(`${URL}/user`);
+        return this.http
+            .get<FullUserModel[]>(`${URL}/user`);
     }
 
     create(user: FullUserModel): Observable<FullUserModel> {
-        return this.http.post<FullUserModel>(`${URL}/user`, user);
+        return this.http
+            .post<FullUserModel>(`${URL}/user`, user);
     }
 
 }

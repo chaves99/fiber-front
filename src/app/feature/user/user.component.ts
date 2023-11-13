@@ -15,14 +15,15 @@ export class UserComponent implements OnInit {
     constructor(
         private userService: UserService,
         private storageService: StorageService
-    ){}
+    ) { }
 
     ngOnInit(): void {
         let user = this.storageService.getUser();
-        if (user && user.id) 
-            this.userService.getById(user.id).subscribe(u => {
-                this.user = u;
-            });
+        if (user && user.id)
+            this.userService.getById(user.id)
+                .subscribe(u => {
+                    this.user = u;
+                });
     }
 
 }

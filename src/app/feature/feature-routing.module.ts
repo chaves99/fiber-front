@@ -31,15 +31,18 @@ const routes: Routes = [
       },
       {
         path: getUrlByType(MenuListEnum.DAILY),
-        component: DailyComponent
+        component: DailyComponent,
+        canActivate: [canActivateAuth]
       },
       {
         path: getUrlByType(MenuListEnum.DAILY) + "/detail/:seasonId",
-        component: DailyDetailComponent
+        component: DailyDetailComponent,
+        canActivate: [canActivateAuth]
       },
       {
         path: getUrlByType(MenuListEnum.ADD_MEAL),
-        component: AddMealComponent
+        component: AddMealComponent,
+        canActivate: [canActivateAuth]
       }
     ]
   }

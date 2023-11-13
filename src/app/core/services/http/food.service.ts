@@ -12,18 +12,22 @@ export class FoodService {
     ) { }
 
     getById(id: number): Observable<FoodModel> {
-        return this.http.get<FoodModel>(`${URL}/food/${id}`);
+        return this.http
+            .get<FoodModel>(`${URL}/food/${id}`);
     }
 
     getAll(): Observable<FoodModel[]> {
-        return this.http.get<FoodModel[]>(`${URL}/food`);
+        return this.http
+            .get<FoodModel[]>(`${URL}/food`);
     }
 
     search(text: string): Observable<FoodModel[] | null> {
-        return this.http.get<FoodModel[] | null>(`${URL}/food/search/${text}`);
+        return this.http
+            .get<FoodModel[] | null>(`${URL}/food/search/${text}`);
     }
 
     create(model: FoodModel): Observable<FoodModel> {
-        return this.http.post<FoodModel>(`${URL}/food`, model);
+        return this.http
+            .post<FoodModel>(`${URL}/food`, model);
     }
 }

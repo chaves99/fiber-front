@@ -1,12 +1,17 @@
+import { Injectable } from "@angular/core";
 import { UserModel } from "../models/user.model";
 
+@Injectable({providedIn: "root"})
 export abstract class StorageService {
 
     abstract getUser(): UserModel | undefined;
 
     abstract setUser(user: UserModel): void;
+
+    abstract clearUser(): void;
 }
 
+@Injectable({providedIn: "root"})
 export class StorageServiceImpl extends StorageService {
 
     private readonly USER_KEY: string = 'USER_KEY';
@@ -22,6 +27,10 @@ export class StorageServiceImpl extends StorageService {
             return JSON.parse(user);
         }
         return undefined;
+    }
+
+    override clearUser(): void {
+        localStorage.clear();
     }
 
 }
