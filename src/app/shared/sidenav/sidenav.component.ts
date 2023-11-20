@@ -21,8 +21,13 @@ export class SidenavComponent implements OnInit {
 
   ngOnInit(): void {
     this.sidenavService.getSubject().subscribe((v) => {
+      console.log(`sidenav toggling value:${v}`);
       if (v) this.matDrawer.toggle();
     });
+  }
+
+  close(): void {
+    this.matDrawer.close();
   }
 
 }

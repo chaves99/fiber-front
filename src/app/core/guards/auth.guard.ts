@@ -13,8 +13,7 @@ class AuthGuardService {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree {
         let user = this.storageService.getUser();
-        console.log(`canActivate - user:[${user}]`);
-        if (this.storageService.getUser() !== undefined) {
+        if (user !== undefined) {
             return true;
         }
 
