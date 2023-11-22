@@ -1,5 +1,7 @@
+import { LOG_IN_OUT_STATE } from "@core/services/storage.service";
+
 export enum MenuListEnum {
-    USER, FOOD, LOGIN, DAILY, ADD_MEAL
+    USER, FOOD, LOGIN, DAILY, ADD_MEAL, LOGOUT
 }
 
 interface MenuListInterface {
@@ -7,7 +9,7 @@ interface MenuListInterface {
     description: string;
     icon: string;
     type: MenuListEnum;
-    isVisible: boolean;
+    visibleMode: LOG_IN_OUT_STATE;
 }
 
 export function getMenuByType(type: MenuListEnum): MenuListInterface | undefined {
@@ -26,34 +28,41 @@ export const menuList: MenuListInterface[] = [
         description: 'User',
         icon: 'person',
         type: MenuListEnum.USER,
-        isVisible: true
+        visibleMode: "LOGIN"
     },
     {
         url: 'food',
         description: 'Food',
         icon: 'restaurant',
         type: MenuListEnum.FOOD,
-        isVisible: true
+        visibleMode: "LOGIN"
     },
     {
         url: 'login',
         description: 'Login',
         icon: 'lock_open',
         type: MenuListEnum.LOGIN,
-        isVisible: false
+        visibleMode: "LOGOUT"
     },
     {
         url: 'dialy',
         description: 'Dialy Log',
         icon: 'library_books',
         type: MenuListEnum.DAILY,
-        isVisible: true
+        visibleMode: "LOGIN"
     },
     {
         url: 'add-meal',
         description: 'Add Meal',
         icon: 'add',
         type: MenuListEnum.ADD_MEAL,
-        isVisible: true
+        visibleMode: "LOGIN"
+    },
+    {
+        url: 'logout',
+        description: 'Logout',
+        icon: 'lock_close',
+        type: MenuListEnum.LOGOUT,
+        visibleMode: "LOGIN"
     }
 ]

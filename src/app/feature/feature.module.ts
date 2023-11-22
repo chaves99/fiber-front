@@ -18,6 +18,7 @@ import { UserComponent } from './user/user.component';
 import { DailyComponent } from './daily/daily.component';
 import { DailyDetailComponent } from './daily-detail/daily-detail.component';
 import { AddMealComponent } from './add-meal/add-meal.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { AddMealComponent } from './add-meal/add-meal.component';
     LoginComponent,
     DailyComponent,
     DailyDetailComponent,
-    AddMealComponent
+    AddMealComponent,
+    LogoutComponent
   ],
   imports: [
     CommonModule,

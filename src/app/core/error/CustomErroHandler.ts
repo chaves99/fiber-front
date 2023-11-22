@@ -25,7 +25,8 @@ export class CustomErrorHandler implements ErrorHandler {
                 this.storageService.clearUser();
             }
             if (error instanceof Error) {
-                this.snackBar.open(`cause:${error.cause} message:${error.message}`, 'OK');
+                // this.snackBar.open(`cause:${error.cause} message:${error.message}`, 'OK');
+                throw error;
             }
         });
 
