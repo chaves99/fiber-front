@@ -1,6 +1,17 @@
-<mat-list *ngFor="let food of foodsModel">
-    <mat-list-item role="listitem" (click)="edit(food)">
-        {{ food.name }}
-    </mat-list-item>
-    <mat-divider></mat-divider>
-</mat-list>
+<div *ngIf="this.foodsModel.length > 0 else noFoodsBlock">
+    <mat-list *ngFor="let food of foodsModel">
+        <mat-list-item role="listitem" (click)="edit(food)">
+            {{ food.name }}
+        </mat-list-item>
+        <mat-divider></mat-divider>
+    </mat-list>
+</div>
+
+<ng-template #noFoodsBlock>
+    <section class="no-foods-block">
+        <h2>
+            No foods registered!
+        </h2>
+        <button mat-fab extended (click)="openForm()">Add Foods</button>
+    </section>
+</ng-template>

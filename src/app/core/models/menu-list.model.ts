@@ -1,7 +1,7 @@
 import { LOG_IN_OUT_STATE } from "@core/services/storage.service";
 
 export enum MenuListEnum {
-    USER, FOOD, LOGIN, DAILY, ADD_MEAL, LOGOUT
+    USER, FOOD, REGISTER_FOOD, LOGIN, DAILY, ADD_MEAL, LOGOUT
 }
 
 interface MenuListInterface {
@@ -35,6 +35,13 @@ export const menuList: MenuListInterface[] = [
         description: 'Food',
         icon: 'restaurant',
         type: MenuListEnum.FOOD,
+        visibleMode: "LOGIN"
+    },
+    {
+        url: 'register-food',
+        description: 'Register Food',
+        icon: 'register',
+        type: MenuListEnum.REGISTER_FOOD,
         visibleMode: "LOGIN"
     },
     {

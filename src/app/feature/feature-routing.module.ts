@@ -10,6 +10,7 @@ import { UserComponent } from './user/user.component';
 import { DailyDetailComponent } from './daily-detail/daily-detail.component';
 import { AddMealComponent } from './add-meal/add-meal.component';
 import { LogoutComponent } from './logout/logout.component';
+import { FoodFormComponent } from './food-form/food-form.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,11 @@ const routes: Routes = [
       {
         path: getUrlByType(MenuListEnum.ADD_MEAL),
         component: AddMealComponent,
+        canActivate: [canActivateAuth]
+      },
+      {
+        path: getUrlByType(MenuListEnum.REGISTER_FOOD),
+        component: FoodFormComponent,
         canActivate: [canActivateAuth]
       },
       {

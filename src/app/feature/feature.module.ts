@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
@@ -16,6 +17,7 @@ import { DailyDetailComponent } from './daily-detail/daily-detail.component';
 import { DailyComponent } from './daily/daily.component';
 import { FeatureRoutingModule } from './feature-routing.module';
 import { FeatureComponent } from './feature.component';
+import { FoodFormComponent } from './food-form/food-form.component';
 import { FoodComponent } from './food/food.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -31,7 +33,8 @@ import { UserComponent } from './user/user.component';
     DailyComponent,
     DailyDetailComponent,
     AddMealComponent,
-    LogoutComponent
+    LogoutComponent,
+    FoodFormComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +51,8 @@ import { UserComponent } from './user/user.component';
     MatDividerModule,
     MatListModule,
     MatIconModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatGridListModule
   ]
 })
 export class FeatureModule { }

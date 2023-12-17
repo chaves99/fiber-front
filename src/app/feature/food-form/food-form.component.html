@@ -1,0 +1,50 @@
+<form [formGroup]="foodFormGroup" class="food-form">
+    <mat-grid-list cols="6" rowHeight="2:3" class="mat-grid-list">
+        <mat-grid-tile [colspan]="6">
+            <mat-form-field style="width: 100%;">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" name="foodName" formControlName="foodName">
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="3">
+            <mat-form-field>
+                <mat-label>Quantity Base</mat-label>
+                <input matInput type="number" name="quantityBase" formControlName="quantityBase">
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="3">
+            <mat-form-field>
+                <mat-label>Calories</mat-label>
+                <input matInput type="number" name="calories" formControlName="calories">
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="2">
+            <mat-form-field>
+                <mat-label>Carbs</mat-label>
+                <input matInput type="number" name="carbs" formControlName="carbs">
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="2">
+            <mat-form-field>
+                <mat-label>Protein</mat-label>
+                <input matInput type="number" name="protein" formControlName="protein">
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="2">
+            <mat-form-field>
+                <mat-label>Fat</mat-label>
+                <input matInput type="number" name="fat" formControlName="fat">
+            </mat-form-field>
+        </mat-grid-tile>
+    
+        <mat-grid-tile [colspan]="6">
+            <button mat-fab extended>Send</button>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+</form>

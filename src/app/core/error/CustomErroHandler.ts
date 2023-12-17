@@ -20,16 +20,17 @@ export class CustomErrorHandler implements ErrorHandler {
     handleError(error: any): void {
         this.zone.run(() => {
             if (error instanceof HttpErrorResponse) {
-                this.snackBar.open(`Ocorreu um erro | message:${error.message}`, 'OK');
-                this.router.navigateByUrl('feature/login');
-                this.storageService.clearUser();
+                if (error.status > 404 || error.status < 404) {
+                    console.log(error);
+                    this.snackBar.open(`status:${error.status} | message:${error.message}`, 'OK', { duration: 2000 });
+                    this.router.navigateByUrl('feature/login');
+                    this.storageService.clearUser();
+                }
             }
             if (error instanceof Error) {
                 // this.snackBar.open(`cause:${error.cause} message:${error.message}`, 'OK');
                 throw error;
             }
         });
-
     }
-
 }
