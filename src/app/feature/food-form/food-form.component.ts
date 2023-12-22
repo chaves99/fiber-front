@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FoodModel } from '@core/models/food.model';
 import { MenuListEnum, getUrlByType } from '@core/models/menu-list.model';
 import { FoodService } from '@core/services/http/food.service';
+import { NavigationService } from '@core/services/navigation.service';
 
 @Component({
   selector: 'app-food-form',
@@ -24,7 +25,8 @@ export class FoodFormComponent implements OnInit {
 
   constructor(
     private foodService: FoodService,
-    private router: Router
+    private navigationService: NavigationService,
+    private activatedRoute: ActivatedRoute
   ){}
 
   ngOnInit(): void {
@@ -32,7 +34,6 @@ export class FoodFormComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.foodFormGroup.value);
     let foodModel: FoodModel = {
       name: this.foodFormGroup.value.foodName,
       baseQuantity: this.foodFormGroup.value.quantityBase,
@@ -41,7 +42,11 @@ export class FoodFormComponent implements OnInit {
       fat: this.foodFormGroup.value.fat,
       fiber: this.foodFormGroup.value.fiber
     };
-    this.foodService.create(foodModel).subscribe(fm => this.router.navigateByUrl(`feature/${getUrlByType(MenuListEnum.FOOD)}`));
+    this.foodService.create(foodModel).subscribe(fm => this.navigationService.navigate(this.activatedRoute, MenuListEnum.FOOD));
+  }
+
+  goBack() {
+    this.navigationService.navigate(this.activatedRoute, MenuListEnum.FOOD);
   }
 
 }

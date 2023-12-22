@@ -50,7 +50,11 @@
         </mat-grid-tile>
     
         <mat-grid-tile [colspan]="6">
-            <button mat-fab extended type="submit">Send</button>
+            <button mat-fab extended type="submit" color="primary">Send</button>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="6">
+            <button mat-fab extended color="accent" (click)="goBack()">Go Back</button>
         </mat-grid-tile>
 
     </mat-grid-list>
