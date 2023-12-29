@@ -39,6 +39,7 @@ export class FoodFormComponent implements OnInit {
       baseQuantity: this.foodFormGroup.value.quantityBase,
       calories: this.foodFormGroup.value.calories,
       carbohydrate: this.foodFormGroup.value.carbs,
+      protein: this.foodFormGroup.value.protein,
       fat: this.foodFormGroup.value.fat,
       fiber: this.foodFormGroup.value.fiber
     };

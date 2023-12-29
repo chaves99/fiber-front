@@ -11,6 +11,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
 import { SharedModule } from '../shared/shared.module';
 import { AddMealComponent } from './add-meal/add-meal.component';
 import { DailyDetailComponent } from './daily-detail/daily-detail.component';
@@ -52,7 +53,8 @@ import { UserComponent } from './user/user.component';
     MatListModule,
     MatIconModule,
     MatAutocompleteModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTableModule
   ]
 })
 export class FeatureModule { }

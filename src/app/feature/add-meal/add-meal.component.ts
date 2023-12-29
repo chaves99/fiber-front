@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
 import { FoodModel } from '@core/models/food.model';
 import { SeasonModel } from '@core/models/season.model';
 import { FoodService } from '@core/services/http/food.service';
@@ -15,10 +16,12 @@ import { Observable, map, startWith } from 'rxjs';
 export class AddMealComponent implements OnInit {
 
   foodFormControl = new FormControl('');
+  quantityFormControl = new FormControl('');
 
   season?: SeasonModel;
 
-  foodAdded: FoodModel[] = [];
+  displayedColumns: string[] = ["Name"]
+  foodAdded: MatTableDataSource<FoodModel> = new MatTableDataSource();
 
   foods: FoodModel[] = [];
 
@@ -40,7 +43,9 @@ export class AddMealComponent implements OnInit {
 
     this.filteredFoods = this.foodFormControl.valueChanges.pipe(
       startWith(''),
-      map(value => this._filter(value || ''))
+      map(value => {
+        return this._filter(value || '')
+      })
     );
   }
 
@@ -48,10 +53,11 @@ export class AddMealComponent implements OnInit {
     return this.foods.filter(food => food.name.toLowerCase().includes(value.toLowerCase()));
   }
 
-  submit() {
-
+  addMealSubmit() {
+    let food = this.foods.filter(food => food.name === this.foodFormControl.value)[0];
+    this.foodAdded.data.push(food);
+    this.foodAdded._updateChangeSubscription();
+    console.log(this.foodAdded);
   }
-
-
 
 }

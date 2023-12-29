@@ -8,12 +8,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MenubarComponent } from './menubar/menubar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { RouterModule } from '@angular/router';
+import { FoodListComponent } from './food-list/food-list.component';
 
 
 @NgModule({
   declarations: [
     MenubarComponent,
-    SidenavComponent
+    SidenavComponent,
+    FoodListComponent
   ],
   imports: [
     CommonModule,

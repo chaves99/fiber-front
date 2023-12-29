@@ -33,14 +33,14 @@ export const menuList: MenuListInterface[] = [
     {
         url: 'food',
         description: 'Food',
-        icon: 'restaurant',
+        icon: 'lunch_dining',
         type: MenuListEnum.FOOD,
         visibleMode: "LOGIN"
     },
     {
         url: 'register-food',
         description: 'Register Food',
-        icon: 'register',
+        icon: 'menu_book',
         type: MenuListEnum.REGISTER_FOOD,
         visibleMode: "LOGIN"
     },
@@ -61,7 +61,7 @@ export const menuList: MenuListInterface[] = [
     {
         url: 'add-meal',
         description: 'Add Meal',
-        icon: 'add',
+        icon: 'post_add',
         type: MenuListEnum.ADD_MEAL,
         visibleMode: "LOGIN"
     },
