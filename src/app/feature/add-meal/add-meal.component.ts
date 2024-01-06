@@ -16,12 +16,13 @@ import { Observable, map, startWith } from 'rxjs';
 export class AddMealComponent implements OnInit {
 
   foodFormControl = new FormControl('');
-  quantityFormControl = new FormControl('');
+  quantityFormControl = new FormControl(0);
 
   season?: SeasonModel;
 
-  displayedColumns: string[] = ["Name"]
-  foodAdded: MatTableDataSource<FoodModel> = new MatTableDataSource();
+  displayedColumns: string[] = ["Name", "Qtd", "Kcal", "Prot", "Carbs", "Fat", "ActionButton"];
+  displayedColumnsFooter: string[] = ["Name", "Qtd", "Kcal", "Prot", "Carbs", "Fat"];
+  foodAdded: MatTableDataSource<FoodAddedTableInterface> = new MatTableDataSource();
 
   foods: FoodModel[] = [];
 
@@ -55,9 +56,69 @@ export class AddMealComponent implements OnInit {
 
   addMealSubmit() {
     let food = this.foods.filter(food => food.name === this.foodFormControl.value)[0];
-    this.foodAdded.data.push(food);
-    this.foodAdded._updateChangeSubscription();
-    console.log(this.foodAdded);
+    if (this.quantityFormControl.value != null) {
+      this.foodAdded.data.push({
+        food: food, 
+        quantity: this.quantityFormControl.value,
+        kcal: (this.quantityFormControl.value * food.calories) / food.baseQuantity,
+        protein: (this.quantityFormControl.value * food.protein) / food.baseQuantity,
+        carbs: (this.quantityFormControl.value * food.carbohydrate) / food.baseQuantity,
+        fat: (this.quantityFormControl.value * food.fat) / food.baseQuantity,
+      });
+      this.foodAdded._updateChangeSubscription();
+      this.cleanInput();
+    }
   }
 
+  cleanInput(): void {
+    this.foodFormControl.reset();
+    this.quantityFormControl.reset();
+  }
+
+  getTotalKcal(): number {
+    let sum = 0;
+    this.foodAdded.data.forEach(f => {
+      sum += f.kcal;
+    });
+    return sum;
+  }
+
+  getTotalFat(): number {
+    let sum = 0;
+    this.foodAdded.data.forEach(f => {
+      sum += f.fat;
+    });
+    return sum;
+  }
+
+  getTotalProtein(): number {
+    let sum = 0;
+    this.foodAdded.data.forEach(f => {
+      sum += f.protein;
+    });
+    return sum;
+  }
+
+  getTotalCarbs(): number {
+    let sum = 0;
+    this.foodAdded.data.forEach(f => {
+      sum += f.carbs;
+    });
+    return sum;
+  }
+
+  removeFood(id: number): void {
+    this.foodAdded.data = this.foodAdded.data.filter(fa => fa.food.id !== id);
+    this.foodAdded._updateChangeSubscription();
+  }
+
+}
+
+interface FoodAddedTableInterface {
+  food: FoodModel,
+  quantity: number,
+  kcal: number,
+  protein: number,
+  carbs: number,
+  fat: number,
 }
