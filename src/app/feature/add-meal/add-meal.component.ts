@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { FoodModel } from '@core/models/food.model';
+import { FoodMealModel, MealModel } from '@core/models/meal.model';
 import { SeasonModel } from '@core/models/season.model';
 import { FoodService } from '@core/services/http/food.service';
+import { MealService } from '@core/services/http/meal.service';
 import { SeasonService } from '@core/services/http/season.service';
 import { StorageService } from '@core/services/storage.service';
 import { Observable, map, startWith } from 'rxjs';
@@ -31,7 +33,8 @@ export class AddMealComponent implements OnInit {
   constructor(
     private storageService: StorageService,
     private seasonService: SeasonService,
-    private foodService: FoodService
+    private foodService: FoodService,
+    private mealService: MealService
   ) { }
 
   ngOnInit(): void {
@@ -110,6 +113,25 @@ export class AddMealComponent implements OnInit {
   removeFood(id: number): void {
     this.foodAdded.data = this.foodAdded.data.filter(fa => fa.food.id !== id);
     this.foodAdded._updateChangeSubscription();
+  }
+
+  addMeal(): void {
+    let foodMealModel: FoodMealModel[] = [];
+
+    this.foodAdded.data.forEach(f => {
+      if (f.food.id && f.food.name && f.quantity) {
+        foodMealModel.push({
+          id: f.food.id,
+          name: f.food.name,
+          quantity: f.quantity
+        });
+      }
+    });
+
+    if (this.season && this.season.id && foodMealModel) {
+      let meal: MealModel = {seasonId: this.season.id, description: '', foods: foodMealModel};
+      this.mealService.create(meal).subscribe();
+    }
   }
 
 }

@@ -9,5 +9,5 @@ export interface MealModel {
 export interface FoodMealModel {
     id: number;
     name: string;
-    quantity?: number
+    quantity: number
 }
