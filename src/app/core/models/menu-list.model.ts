@@ -52,8 +52,8 @@ export const menuList: MenuListInterface[] = [
         visibleMode: "LOGOUT"
     },
     {
-        url: 'dialy',
-        description: 'Dialy Log',
+        url: 'daily',
+        description: 'Daily Log',
         icon: 'library_books',
         type: MenuListEnum.DAILY,
         visibleMode: "LOGIN"

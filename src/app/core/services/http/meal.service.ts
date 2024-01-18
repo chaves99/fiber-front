@@ -13,7 +13,7 @@ export class MealService {
 
     create(model: MealModel): Observable<MealModel> {
         return this.http
-            .put<MealModel>(`${URL}/meals`, model);
+            .post<MealModel>(`${URL}/meals`, model);
     }
 
     getBySeasonId(seasonId: number): Observable<MealModel[]> {

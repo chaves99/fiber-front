@@ -1,6 +1,6 @@
 export interface MealModel {
-    seasonId: number,
-    description: string,
+    seasonId?: number,
+    description?: string,
     dayTime?: string,
     order?: number;
     foods?: FoodMealModel[];

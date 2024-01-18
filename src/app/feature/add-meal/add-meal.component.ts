@@ -115,6 +115,7 @@ export class AddMealComponent implements OnInit {
     this.foodAdded._updateChangeSubscription();
   }
 
+  // TODO it needs to clean the table
   addMeal(): void {
     let foodMealModel: FoodMealModel[] = [];
 
@@ -128,10 +129,22 @@ export class AddMealComponent implements OnInit {
       }
     });
 
-    if (this.season && this.season.id && foodMealModel) {
-      let meal: MealModel = {seasonId: this.season.id, description: '', foods: foodMealModel};
-      this.mealService.create(meal).subscribe();
+    if (foodMealModel) {
+      let meal: MealModel = {foods: foodMealModel};
+
+      if (this.season) {
+        meal.seasonId = this.season.id;
+      }
+      
+      this.mealService.create(meal).subscribe(m => console.log(m));
     }
+
+    this.cleanTable();
+  }
+
+  cleanTable(): void {
+    this.foodAdded.data = [];
+    this.foodAdded._updateChangeSubscription();
   }
 
 }
