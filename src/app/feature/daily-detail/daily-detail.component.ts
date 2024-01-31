@@ -38,4 +38,34 @@ export class DailyDetailComponent implements OnInit {
     });
   }
 
+  getCardDescription(meal: MealModel): string {
+    let description = '';
+    let totalKcal = 0;
+    if (meal.foods) {
+      meal.foods.forEach((food, index, arr) => {
+        console.log(`index:${index} ${food.name}:${food.quantity}`);
+        if (index == 0 && 1 == arr.length) {
+          description = description.concat(`${food.name}: ${food.quantity}.`);
+        } else if (index == 0 && arr.length > 1) {
+          description = description.concat(`${food.name}: ${food.quantity}, `);
+        } else if (index > 0 && (index+1) < arr.length) {
+          description = description.concat(` ${food.name}: ${food.quantity}, `);
+        } else if (index > 0 && (index+1) == arr.length) {
+          description = description.concat(` ${food.name}: ${food.quantity}.`);
+        }
+        if (food.totalKcal) {
+          totalKcal += food.totalKcal;
+        }
+      });
+    }
+    return description.concat(` - total calories:${totalKcal}`);
+  }
+
+}
+
+interface CalculatedMacro {
+  kcal: number;
+  fat: number;
+  protein: number;
+  carbs: number;
 }
