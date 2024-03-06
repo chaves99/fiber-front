@@ -19,6 +19,8 @@ export class AddMealComponent implements OnInit {
 
   foodFormControl = new FormControl('');
   quantityFormControl = new FormControl(0);
+  hourFormControl = new FormControl('');
+  dateFormControl = new FormControl('');
 
   season?: SeasonModel;
 
@@ -58,18 +60,23 @@ export class AddMealComponent implements OnInit {
   }
 
   addMealSubmit() {
-    let food = this.foods.filter(food => food.name === this.foodFormControl.value)[0];
-    if (this.quantityFormControl.value != null) {
-      this.foodAdded.data.push({
-        food: food, 
-        quantity: this.quantityFormControl.value,
-        kcal: (this.quantityFormControl.value * food.calories) / food.baseQuantity,
-        protein: (this.quantityFormControl.value * food.protein) / food.baseQuantity,
-        carbs: (this.quantityFormControl.value * food.carbohydrate) / food.baseQuantity,
-        fat: (this.quantityFormControl.value * food.fat) / food.baseQuantity,
-      });
-      this.foodAdded._updateChangeSubscription();
-      this.cleanInput();
+    // let food = this.foods.filter(food => food.name === this.foodFormControl.value)[0];
+    // if (this.quantityFormControl.value != null) {
+    //   this.foodAdded.data.push({
+    //     food: food, 
+    //     quantity: this.quantityFormControl.value,
+    //     kcal: (this.quantityFormControl.value * food.calories) / food.baseQuantity,
+    //     protein: (this.quantityFormControl.value * food.protein) / food.baseQuantity,
+    //     carbs: (this.quantityFormControl.value * food.carbohydrate) / food.baseQuantity,
+    //     fat: (this.quantityFormControl.value * food.fat) / food.baseQuantity,
+    //   });
+    //   this.foodAdded._updateChangeSubscription();
+    //   this.cleanInput();
+    // }
+    if (this.dateFormControl.value && this.hourFormControl.value) {
+      let date = new Date(this.dateFormControl.value);
+      // date.setHours()
+      // console.log();
     }
   }
 

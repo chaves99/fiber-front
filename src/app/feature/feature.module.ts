@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -12,6 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
+
+import { MatNativeDateModule } from '@angular/material/core';
 import { SharedModule } from '../shared/shared.module';
 import { AddMealComponent } from './add-meal/add-meal.component';
 import { DailyDetailComponent } from './daily-detail/daily-detail.component';
@@ -54,7 +57,9 @@ import { UserComponent } from './user/user.component';
     MatIconModule,
     MatAutocompleteModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class FeatureModule { }

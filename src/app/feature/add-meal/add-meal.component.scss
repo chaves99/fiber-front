@@ -3,14 +3,24 @@ form {
     margin-bottom: 20px;
 }
 
-.autocomplete-input {
-    width: 100%;
-}
-
 .table-container {
     overflow: auto;
 }
 
+.autocomplete-input {
+    width: 100%;
+}
+
 .qtd-input {
     width: 100%;
+}
+
+.date-input {
+    width: calc(50% - 10px);
+    margin-right: 10px;
+}
+
+.hour-input {
+    width: calc(50% - 10px);
+    margin-left: 10px;
 }
