@@ -1,4 +1,5 @@
 export interface MealModel {
+  id?: number,
   seasonId?: number,
   description?: string,
   dayTime?: string,

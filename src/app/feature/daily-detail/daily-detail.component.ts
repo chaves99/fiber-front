@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MealModel } from '@core/models/meal.model';
+import { MenuListEnum, getUrlByType } from '@core/models/menu-list.model';
 import { SeasonModel } from '@core/models/season.model';
 import { MealService } from '@core/services/http/meal.service';
 import { SeasonService } from '@core/services/http/season.service';
@@ -19,7 +20,8 @@ export class DailyDetailComponent implements OnInit {
   constructor(
     private seasonService: SeasonService,
     private mealService: MealService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -43,14 +45,13 @@ export class DailyDetailComponent implements OnInit {
     let totalKcal = 0;
     if (meal.foods) {
       meal.foods.forEach((food, index, arr) => {
-        console.log(`index:${index} ${food.name}:${food.quantity}`);
         if (index == 0 && 1 == arr.length) {
           description = description.concat(`${food.name}: ${food.quantity}.`);
         } else if (index == 0 && arr.length > 1) {
           description = description.concat(`${food.name}: ${food.quantity}, `);
-        } else if (index > 0 && (index+1) < arr.length) {
+        } else if (index > 0 && (index + 1) < arr.length) {
           description = description.concat(` ${food.name}: ${food.quantity}, `);
-        } else if (index > 0 && (index+1) == arr.length) {
+        } else if (index > 0 && (index + 1) == arr.length) {
           description = description.concat(` ${food.name}: ${food.quantity}.`);
         }
         if (food.totalKcal) {
@@ -61,6 +62,13 @@ export class DailyDetailComponent implements OnInit {
     return description.concat(` - total calories:${totalKcal}`);
   }
 
+  openMeal(meal: MealModel) {
+    // let url = getUrlByType(MenuListEnum.MEAL_DETAIL);
+    // console.log(meal);
+    // if (url !== undefined) {
+    // }
+    this.router.navigateByUrl(this.router.createUrlTree(['meal', meal.id], { relativeTo: this.route.parent }));
+  }
 }
 
 interface CalculatedMacro {

@@ -1,21 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterModule } from '@angular/router';
+import { EachMealCardComponent } from './each-meal-card/each-meal-card.component';
 import { MenubarComponent } from './menubar/menubar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import { RouterModule } from '@angular/router';
-import { FoodListComponent } from './food-list/food-list.component';
 
 
 @NgModule({
   declarations: [
     MenubarComponent,
     SidenavComponent,
-    FoodListComponent
+    EachMealCardComponent
   ],
   imports: [
     CommonModule,
@@ -25,11 +26,13 @@ import { FoodListComponent } from './food-list/food-list.component';
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ],
   exports: [
     MenubarComponent,
-    SidenavComponent
+    SidenavComponent,
+    EachMealCardComponent
   ]
 })
 export class SharedModule { }

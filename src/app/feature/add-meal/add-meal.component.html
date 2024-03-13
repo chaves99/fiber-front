@@ -14,17 +14,17 @@
             <input matInput [formControl]="quantityFormControl" type="text">
         </mat-form-field>
 
-        <mat-form-field class="date-input">
-            <mat-label>Choose a date</mat-label>
+        <mat-form-field class="date-input" (click)="picker.open()">
+            <mat-label>Date</mat-label>
             <input matInput [formControl]="dateFormControl" [matDatepicker]="picker">
-            <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+            <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
 
         <mat-form-field class="hour-input">
             <mat-label>Hour</mat-label>
-            <input matInput [formControl]="hourFormControl" type="datetime-local">
+            <input matInput [formControl]="hourFormControl" type="time">
         </mat-form-field>
 
         <button mat-raised-button style="width: 100%;" color="primary" type="submit">Insert</button>

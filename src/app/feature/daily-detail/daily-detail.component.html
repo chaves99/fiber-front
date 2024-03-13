@@ -1,16 +1,3 @@
-<mat-card *ngFor="let meal of meals" style="margin-bottom: 5px;">
-    <mat-card-header>
-        <mat-card-title>{{ meal.dayTime | date:'short' }}</mat-card-title>
-        <mat-card-subtitle>{{ meal.description }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>{{ getCardDescription(meal) }}</mat-card-content>
-</mat-card>
-
-<!-- <mat-list role="list" *ngFor="let meal of meals">
-    <mat-list-item role="listitem">
-        <span matListItemTitle>{{ meal.dayTime | date:'short' }}</span>
-        <span>
-            {{meal.description}} | N&#730;: {{ meal.order }}
-        </span>
-    </mat-list-item>
-</mat-list> -->
+<div *ngFor="let meal of meals">
+    <fib-each-meal-card (clickEvent)="openMeal($event)" [meal]="meal"></fib-each-meal-card>
+</div>

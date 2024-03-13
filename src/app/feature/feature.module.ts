@@ -15,6 +15,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { SharedModule } from '../shared/shared.module';
 import { AddMealComponent } from './add-meal/add-meal.component';
 import { DailyDetailComponent } from './daily-detail/daily-detail.component';
@@ -59,7 +60,8 @@ import { UserComponent } from './user/user.component';
     MatGridListModule,
     MatTableModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatExpansionModule
   ]
 })
 export class FeatureModule { }
