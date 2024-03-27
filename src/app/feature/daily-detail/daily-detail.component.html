@@ -1,3 +1,12 @@
-<div *ngFor="let meal of meals">
+<!-- <div *ngFor="let meal of meals">
     <fib-each-meal-card (clickEvent)="openMeal($event)" [meal]="meal"></fib-each-meal-card>
-</div>
+</div> -->
+<h2>Meals</h2>
+<mat-list role="list" *ngFor="let meal of meals" color="primary">
+    <mat-list-item role="listitem" (click)="openMeal(meal)">
+        <span matListItemTitle>{{ meal.description }}</span>
+        <span matListItemLine>{{ meal.dayTime | date:"medium" }}</span>
+        <span matListItemLine>Kcal: {{ getTotalKcal(meal.foods) }}, Carbs: {{ getTotalCarbs(meal.foods) | number: '2.0-1' }}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+</mat-list>

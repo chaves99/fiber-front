@@ -11,6 +11,7 @@ import { DailyDetailComponent } from './daily-detail/daily-detail.component';
 import { AddMealComponent } from './add-meal/add-meal.component';
 import { LogoutComponent } from './logout/logout.component';
 import { FoodFormComponent } from './food-form/food-form.component';
+import { MealDetailComponent } from './meal-detail/meal-detail.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,11 @@ const routes: Routes = [
       {
         path: getUrlByType(MenuListEnum.LOGOUT),
         component: LogoutComponent,
+      },
+      {
+        path: 'meal-detail/:mealId',
+        component: MealDetailComponent,
+        canActivate: [canActivateAuth]
       }
     ]
   }

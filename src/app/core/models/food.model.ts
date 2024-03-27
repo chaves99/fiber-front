@@ -8,3 +8,12 @@ export interface FoodModel {
   calories: number;
   fat: number;
 }
+
+export interface FoodAddedTableInterface {
+  food: FoodModel,
+  quantity: number,
+  kcal: number,
+  protein: number,
+  carbs: number,
+  fat: number,
+}

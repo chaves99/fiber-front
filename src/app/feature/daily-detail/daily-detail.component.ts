@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MealModel } from '@core/models/meal.model';
+import { FoodMealModel, MealModel } from '@core/models/meal.model';
 import { MenuListEnum, getUrlByType } from '@core/models/menu-list.model';
 import { SeasonModel } from '@core/models/season.model';
 import { MealService } from '@core/services/http/meal.service';
@@ -62,18 +62,34 @@ export class DailyDetailComponent implements OnInit {
     return description.concat(` - total calories:${totalKcal}`);
   }
 
-  openMeal(meal: MealModel) {
-    // let url = getUrlByType(MenuListEnum.MEAL_DETAIL);
-    // console.log(meal);
-    // if (url !== undefined) {
-    // }
-    this.router.navigateByUrl(this.router.createUrlTree(['meal', meal.id], { relativeTo: this.route.parent }));
+  getTotalCarbs(foods?: FoodMealModel[]) {
+    if (foods) {
+      let total = foods
+        .map(f => f.totalCarbs)
+        .reduce((previousValue, current) => this.calculate(previousValue, current));
+      return total !== undefined ? total : 0;
+    }
+    return 0;
   }
-}
 
-interface CalculatedMacro {
-  kcal: number;
-  fat: number;
-  protein: number;
-  carbs: number;
+  calculate(previous: number | undefined, current: number | undefined): number {
+    if (previous && current) {
+      return previous + current;
+    }
+    return 0;
+  }
+
+  getTotalKcal(foods?: FoodMealModel[]): number {
+    if (foods) {
+      let total = foods
+        .map(f => f.totalKcal)
+        .reduce((previousValue, current) => this.calculate(previousValue, current));
+      return total !== undefined ? total : 0;
+    }
+    return 0;
+  }
+
+  openMeal(meal: MealModel) {
+    this.router.navigateByUrl(this.router.createUrlTree(['meal-detail', meal.id], { relativeTo: this.route.parent }));
+  }
 }

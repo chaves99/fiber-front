@@ -26,8 +26,8 @@ import { FoodFormComponent } from './food-form/food-form.component';
 import { FoodComponent } from './food/food.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { MealDetailComponent } from './meal-detail/meal-detail.component';
 import { UserComponent } from './user/user.component';
-
 
 @NgModule({
   declarations: [
@@ -39,7 +39,8 @@ import { UserComponent } from './user/user.component';
     DailyDetailComponent,
     AddMealComponent,
     LogoutComponent,
-    FoodFormComponent
+    FoodFormComponent,
+    MealDetailComponent
   ],
   imports: [
     CommonModule,
@@ -61,7 +62,7 @@ import { UserComponent } from './user/user.component';
     MatTableModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatExpansionModule
+    MatExpansionModule,
   ]
 })
 export class FeatureModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-import { FoodModel } from '@core/models/food.model';
+import { FoodAddedTableInterface, FoodModel } from '@core/models/food.model';
 import { FoodMealModel, MealModel } from '@core/models/meal.model';
 import { SeasonModel } from '@core/models/season.model';
 import { FoodService } from '@core/services/http/food.service';
@@ -140,11 +140,9 @@ export class AddMealComponent implements OnInit {
       if (this.season) {
         meal.seasonId = this.season.id;
       }
-      
-      this.mealService.create(meal).subscribe(m => console.log(m));
-    }
 
-    this.cleanTable();
+      this.mealService.create(meal).subscribe(() => this.cleanTable());
+    }
   }
 
   cleanTable(): void {
@@ -152,13 +150,4 @@ export class AddMealComponent implements OnInit {
     this.foodAdded._updateChangeSubscription();
   }
 
-}
-
-interface FoodAddedTableInterface {
-  food: FoodModel,
-  quantity: number,
-  kcal: number,
-  protein: number,
-  carbs: number,
-  fat: number,
 }
