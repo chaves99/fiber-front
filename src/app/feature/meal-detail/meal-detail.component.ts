@@ -23,4 +23,14 @@ export class MealDetailComponent implements OnInit {
       this.mealService.getByMealId(parseInt(mealId)).subscribe(m => this.meal = m);
     }
   }
+
+  getTotalkcal(): number {
+    let total = 0;
+    this.meal?.foods?.forEach(food => {
+      if (food.totalKcal) {
+        total += food.totalKcal;
+      }
+    });
+    return total;
+  }
 }

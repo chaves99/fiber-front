@@ -1,5 +1,16 @@
 <h2>{{ meal?.description }}</h2>
-<mat-divider></mat-divider>
+<!-- <mat-divider></mat-divider> -->
 <p>Date: {{ meal?.dayTime }}</p>
 <p>Meal number: {{ meal?.order }}</p>
-<fib-food-table></fib-food-table>
+<p>Total kcal:{{ getTotalkcal() }}</p>
+<mat-list *ngFor="let food of meal?.foods">
+    <mat-list-item lines="3">
+        <span matListItemTitle>{{ food.name }}</span>
+        <span matListItemLine>
+            Quant.: {{ food.quantity }}, Kcal: {{food.totalKcal}}
+        </span>
+        <span matListItemLine>
+            Protein: {{food.totalProtein}}, Carbs.: {{food.totalCarbs}}, Fat: {{ food.totalFat }}
+        </span>
+    </mat-list-item>
+</mat-list>

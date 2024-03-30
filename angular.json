@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "fiber-front:build:production"
+              "buildTarget": "fiber-front:build:production"
             },
             "development": {
-              "browserTarget": "fiber-front:build:development"
+              "buildTarget": "fiber-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fiber-front:build"
+            "buildTarget": "fiber-front:build"
           }
         },
         "test": {
