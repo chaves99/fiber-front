@@ -3,9 +3,7 @@ run-name: Creating Production Ready Android App 🚀
 
 on:
   push:
-    branches: [ "main-test" ]
-  pull_request:
-    branches: [ "main-test" ]
+    tags: [ "*" ]
 
 jobs:
   build:
@@ -72,7 +70,7 @@ jobs:
 
       - name: Set Tag
         id: current-datetime
-        run: echo "CURRENT_DATETIME=$(date +'%Y-%m-%d-%H_%M_%S%z')" >> "$GITHUB_OUTPUT"
+        run: echo ${{ github.ref_name }} >> "$GITHUB_OUTPUT"
 
       - name: Release
         uses: softprops/action-gh-release@v2
