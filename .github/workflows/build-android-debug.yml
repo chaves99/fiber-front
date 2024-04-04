@@ -4,7 +4,7 @@ run-name: Creating Production Ready Android App 🚀
 on:
   push:
     tags:
-      - '*'
+      - '**'
 
 jobs:
   build:

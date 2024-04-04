@@ -1,6 +1,6 @@
 {
   "name": "fiber-front",
-  "version": "v1.0.2",
+  "version": "v1.0.4",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
