@@ -77,9 +77,9 @@ jobs:
       - name: Generate tag
         uses: Klemensas/action-autotag@stable
         with:
-          GITHUB_TOKEN: "${{ steps.project-version.outputs.version }}"
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
-      - name: Release
+      - name: Generate Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
