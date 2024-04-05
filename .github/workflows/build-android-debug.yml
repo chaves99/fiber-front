@@ -1,14 +1,9 @@
 name: Build Android
 run-name: Creating Production Ready Android App
 
-# on:
-#   push:
-#     tags:
-#       - '**'
 on:
-  create:
-    branches-ignore:
-      '*'
+  push: 
+    branches: ['main']
 
 jobs:
   build:
@@ -55,6 +50,12 @@ jobs:
       - name: Build app bundle
         run: cd android && ./gradlew bundle && ./gradlew assembleDebug
 
+      - name: Get project version
+        id: project-version
+        uses: beaconbrigade/package-json-version@v0.3
+        with:
+          path: .
+
       # - name: Extract Android signing key from env
       #   run: |
       #     echo "${{ secrets.RELEASE_KEYSTORE }}" > android/release.jks.base64
@@ -73,9 +74,10 @@ jobs:
       #     path: ./android/app/build/outputs/bundle/release/app-release-signed.aab
       #     retention-days: 60
 
-      - name: Set Tag
-        id: current-datetime
-        run: echo ${{ github.ref_name }} >> "$GITHUB_OUTPUT"
+      - name: Generate tag
+        uses: Klemensas/action-autotag@stable
+        with:
+          GITHUB_TOKEN: "${{ steps.project-version.outputs.version }}"
 
       - name: Release
         uses: softprops/action-gh-release@v2
@@ -83,13 +85,3 @@ jobs:
           files: |
             ./android/app/build/outputs/bundle/release/app-release.aab
             ./android/app/build/outputs/apk/debug/app-debug.apk
-
-      # - name: Build Release
-      #   shell: bash
-      #   run: |
-      #     hub release create ${{ steps.current-datetime.outputs.CURRENT_DATETIME }} \
-      #     -m ${{ steps.current-datetime.outputs.CURRENT_DATETIME }} \
-      #     -a ./android/app/build/outputs/bundle/release/app-release-signed.aab \
-      #     -a ./android/app/build/outputs/apk/debug/app-debug.apk
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
