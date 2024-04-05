@@ -82,6 +82,7 @@ jobs:
       - name: Generate Release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ steps.project-version.outputs.version }}
           files: |
             ./android/app/build/outputs/bundle/release/app-release.aab
             ./android/app/build/outputs/apk/debug/app-debug.apk
