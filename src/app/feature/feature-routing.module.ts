@@ -12,6 +12,7 @@ import { AddMealComponent } from './add-meal/add-meal.component';
 import { LogoutComponent } from './logout/logout.component';
 import { FoodFormComponent } from './food-form/food-form.component';
 import { MealDetailComponent } from './meal-detail/meal-detail.component';
+import { ReportMealComponent } from './report-meal/report-meal.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,11 @@ const routes: Routes = [
       {
         path: 'meal-detail/:mealId',
         component: MealDetailComponent,
+        canActivate: [canActivateAuth]
+      },
+      {
+        path: 'meal-report',
+        component: ReportMealComponent,
         canActivate: [canActivateAuth]
       }
     ]

@@ -1,0 +1,26 @@
+@if (report) {
+<!-- <mat-list *ngFor="let each of report.mealDays">
+    <mat-list-item>{{ each.day }}</mat-list-item>
+    <mat-divider></mat-divider>
+</mat-list> -->
+<mat-accordion *ngFor="let each of report.mealDays" >
+    <mat-expansion-panel hideToggle style="margin-bottom: 5px;">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{ each.day }}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{ each.meals.length }} meals {{ getTotalKcalDay(each.meals)}}Kcal
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+            <mat-list *ngFor="let meal of each.meals">
+                <mat-list-item>{{ meal.hour }} - {{ meal.description }} {{ getTotalKcalMeal(meal)}}Kcal</mat-list-item>
+                <!-- <mat-divider></mat-divider> -->
+            </mat-list>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
+} @else {
+<p>Loading...</p>
+}

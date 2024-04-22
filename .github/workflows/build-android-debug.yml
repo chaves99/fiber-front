@@ -17,6 +17,11 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v3
 
+      - name: Generate tag
+        uses: Klemensas/action-autotag@stable
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
       - name: Setup java
         uses: actions/setup-java@v3
         with:
@@ -73,11 +78,6 @@ jobs:
       #     name: app-release
       #     path: ./android/app/build/outputs/bundle/release/app-release-signed.aab
       #     retention-days: 60
-
-      - name: Generate tag
-        uses: Klemensas/action-autotag@stable
-        with:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Generate Release
         uses: softprops/action-gh-release@v2
