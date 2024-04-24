@@ -1,5 +1,162 @@
 @use '@angular/material' as mat;
 
+@include mat.core();
+
+// color palette based on: https://colorhunt.co/palette/451952662549ae445af39f5a
+
+$personalized-purple-palette: (
+    50: #451952,
+    100: #451952,
+    200: #451952,
+    300: #451952,
+    400: #451952,
+    500: #451952,
+    600: #451952,
+    700: #451952,
+    800: #451952,
+    900: #451952,
+    A100: #451952,
+    A200: #451952,
+    A400: #451952,
+    A700: #451952,
+    contrast: (
+        50: white,
+        100: white,
+        200: white,
+        300: white,
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: white,
+        A200: white,
+        A400: white,
+        A700: white,
+    )
+);
+
+$personalized-dark-maroon-palette: (
+    50: #662549,
+    100: #662549,
+    200: #662549,
+    300: #662549,
+    400: #662549,
+    500: #662549,
+    600: #662549,
+    700: #662549,
+    800: #662549,
+    900: #662549,
+    A100: #662549,
+    A200: #662549,
+    A400: #662549,
+    A700: #662549,
+    contrast: (
+        50: white,
+        100: white,
+        200: white,
+        300: white,
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: white,
+        A200: white,
+        A400: white,
+        A700: white,
+    )
+);
+
+$personalized-light-maroon-palette: (
+    50: #AE445A,
+    100: #AE445A,
+    200: #AE445A,
+    300: #AE445A,
+    400: #AE445A,
+    500: #AE445A,
+    600: #AE445A,
+    700: #AE445A,
+    800: #AE445A,
+    900: #AE445A,
+    A100: #AE445A,
+    A200: #AE445A,
+    A400: #AE445A,
+    A700: #AE445A,
+    contrast: (
+        50: white,
+        100: white,
+        200: white,
+        300: white,
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: white,
+        A200: white,
+        A400: white,
+        A700: white,
+    )
+);
+
+$personalized-orange-palette: (
+    50: #F39F5A,
+    100: #F39F5A,
+    200: #F39F5A,
+    300: #F39F5A,
+    400: #F39F5A,
+    500: #F39F5A,
+    600: #F39F5A,
+    700: #F39F5A,
+    800: #F39F5A,
+    900: #F39F5A,
+    A100: #F39F5A,
+    A200: #F39F5A,
+    A400: #F39F5A,
+    A700: #F39F5A,
+    contrast: (
+    50: rgba(black, 0.87),
+    100:rgba(black, 0.87),
+    200:rgba(black, 0.87),
+    300:rgba(black, 0.87),
+    400:rgba(black, 0.87),
+    500:rgba(black, 0.87),
+    600:rgba(black, 0.87),
+    700:rgba(black, 0.87),
+    800:rgba(black, 0.87),
+    900:rgba(black, 0.87),
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: rgba(black, 0.87),
+    )
+);
+
+$my-primary: mat.define-palette($personalized-purple-palette, 100);
+$my-accent: mat.define-palette($personalized-dark-maroon-palette, 100);
+$my-warn: mat.define-palette($personalized-orange-palette, 100);
+
+$my-theme: mat.define-dark-theme((color: (primary: $my-primary,
+                accent: $my-accent,
+            ),
+            typography: mat.define-typography-config(),
+            density: 0,
+        ));
+
+@include mat.all-component-themes($my-theme);
+
 $my-palette: mat.$indigo-palette;
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
