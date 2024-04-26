@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { FoodModel } from '@core/models/food.model';
-import { MenuListEnum } from '@core/models/menu-list.model';
 import { FoodService } from '@core/services/http/food.service';
 import { NavigationService } from '@core/services/navigation.service';
 
@@ -43,12 +42,12 @@ export class FoodFormComponent {
         fiber: values.fiber
       };
       this.foodService.create(foodModel)
-        .subscribe(fm => this.navigationService.navigate(this.activatedRoute, MenuListEnum.FOOD));
+        .subscribe(fm => this.navigationService.navigate(this.activatedRoute, 'food'));
     }
   }
 
   goBack() {
-    this.navigationService.navigate(this.activatedRoute, MenuListEnum.FOOD);
+    this.navigationService.navigate(this.activatedRoute, 'food');
   }
 
 }

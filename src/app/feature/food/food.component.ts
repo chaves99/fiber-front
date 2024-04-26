@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { FoodModel } from "@core/models/food.model";
-import { MenuListEnum, getUrlByType } from "@core/models/menu-list.model";
 import { FoodService } from "@core/services/http/food.service";
 import { NavigationService } from "@core/services/navigation.service";
 
@@ -29,7 +28,7 @@ export class FoodComponent implements OnInit {
     }
 
     openForm(): void {
-        this.navigationService.navigate(this.activatedRoute, MenuListEnum.REGISTER_FOOD);
+        this.navigationService.navigate(this.activatedRoute, 'register-food');
     }
 
 }

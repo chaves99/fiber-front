@@ -1,6 +1,5 @@
 import { Injectable, inject } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
-import { MenuListEnum, getMenuByType } from "../models/menu-list.model";
 import { StorageService } from "../services/storage.service";
 
 @Injectable({ providedIn: 'root' })
@@ -16,12 +15,7 @@ class AuthGuardService {
         if (user !== undefined) {
             return true;
         }
-
-        let url = getMenuByType(MenuListEnum.LOGIN);
-        if (url !== undefined) {
-            return this.router.createUrlTree(['feature', url.url]);
-        }
-        return false;
+        return this.router.createUrlTree(['feature', 'login']);
     }
 }
 

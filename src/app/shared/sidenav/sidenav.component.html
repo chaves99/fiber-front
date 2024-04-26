@@ -2,12 +2,14 @@
     <mat-sidenav #drawer>
         <mat-nav-list>
             <mat-list-item *ngFor="let link of menuList">
-               <a class="menu-list-item" (click)="close()" matListItemTitle routerLink="{{ link.url }}">{{ link.description }}</a>
-               <button mat-icon-button  matListItemMeta>
-                  <mat-icon>{{link.icon}}</mat-icon>
-               </button>
+                <a class="menu-list-item" (click)="close()" matListItemTitle routerLink="{{ link.path }}">
+                    {{ link.name }}
+                </a>
+                <button mat-icon-button matListItemMeta>
+                    <mat-icon>{{link.icon}}</mat-icon>
+                </button>
             </mat-list-item>
-          </mat-nav-list>
+        </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
         <ng-content></ng-content>

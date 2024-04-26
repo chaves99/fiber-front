@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MenuListEnum, getMenuByType } from '@core/models/menu-list.model';
 import { LoginService } from '@core/services/http/login.service';
 import { StorageService } from '@core/services/storage.service';
 
@@ -25,8 +24,7 @@ export class LoginComponent {
   login() {
     this.loginService.login(this.username, this.password).subscribe(user => {
       this.storageService.setUser(user);
-      let menu = getMenuByType(MenuListEnum.USER)
-      this.router.navigate([menu?.url], { relativeTo: this.activatedRoute.parent?.parent }); // this works!
+      this.router.navigate(['user'], { relativeTo: this.activatedRoute.parent?.parent }); // this works!
     });
   }
 

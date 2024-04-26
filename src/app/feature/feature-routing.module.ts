@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MenuListEnum, getUrlByType } from '@core/models/menu-list.model';
+
 import { canActivateAuth } from '../core/guards/auth.guard';
+import { AddMealComponent } from './add-meal/add-meal.component';
+import { DailyDetailComponent } from './daily-detail/daily-detail.component';
 import { DailyComponent } from './daily/daily.component';
 import { FeatureComponent } from './feature.component';
+import { FoodFormComponent } from './food-form/food-form.component';
 import { FoodComponent } from './food/food.component';
 import { LoginComponent } from './login/login.component';
-import { UserComponent } from './user/user.component';
-import { DailyDetailComponent } from './daily-detail/daily-detail.component';
-import { AddMealComponent } from './add-meal/add-meal.component';
 import { LogoutComponent } from './logout/logout.component';
-import { FoodFormComponent } from './food-form/food-form.component';
 import { MealDetailComponent } from './meal-detail/meal-detail.component';
 import { ReportMealComponent } from './report-meal/report-meal.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   {
@@ -20,41 +20,41 @@ const routes: Routes = [
     component: FeatureComponent,
     children: [
       {
-        path: getUrlByType(MenuListEnum.USER),
+        path: 'user',
         component: UserComponent,
         canActivate: [canActivateAuth]
       },
       {
-        path: getUrlByType(MenuListEnum.FOOD),
+        path: 'food',
         component: FoodComponent,
         canActivate: [canActivateAuth]
       },
       {
-        path: getUrlByType(MenuListEnum.LOGIN),
+        path: 'login',
         component: LoginComponent
       },
       {
-        path: getUrlByType(MenuListEnum.DAILY),
+        path: 'daily',
         component: DailyComponent,
         canActivate: [canActivateAuth]
       },
       {
-        path: getUrlByType(MenuListEnum.DAILY) + "/detail/:seasonId",
+        path: "daily/detail/:seasonId",
         component: DailyDetailComponent,
         canActivate: [canActivateAuth]
       },
       {
-        path: getUrlByType(MenuListEnum.ADD_MEAL),
+        path: 'add-meal',
         component: AddMealComponent,
         canActivate: [canActivateAuth]
       },
       {
-        path: getUrlByType(MenuListEnum.REGISTER_FOOD),
+        path: 'register-food',
         component: FoodFormComponent,
         canActivate: [canActivateAuth]
       },
       {
-        path: getUrlByType(MenuListEnum.LOGOUT),
+        path: 'logout',
         component: LogoutComponent,
       },
       {

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FoodMealModel, MealModel } from '@core/models/meal.model';
-import { MenuListEnum, getUrlByType } from '@core/models/menu-list.model';
 import { SeasonModel } from '@core/models/season.model';
 import { MealService } from '@core/services/http/meal.service';
 import { SeasonService } from '@core/services/http/season.service';
