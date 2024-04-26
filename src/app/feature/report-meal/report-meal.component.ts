@@ -25,10 +25,7 @@ export class ReportMealComponent implements OnInit {
   report?: MealReportModel;
 
   ngOnInit(): void {
-    this.reportService.report().subscribe(report => {
-      this.report = report;
-      console.log(this.report);
-    });
+    this.reportService.report().subscribe(report => this.report = report);
   }
 
   getTotalKcalDay(meals: MealReportMeals[]): number {

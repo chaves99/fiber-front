@@ -50,7 +50,7 @@ jobs:
       
       # TODO: Check for folder structure in README for generating splash screen 
       - name: Generate icons and splash screen to android folder 
-        run:  npx capacitor-assets generate
+        run:  npx @capacitor/assets generate --assetPath src/assets/
         
       - name: Build app bundle
         run: cd android && ./gradlew bundle && ./gradlew assembleDebug
