@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: "http://172.17.0.3:8989"
+    apiUrl: "https://fiber-service-ptlenge4ka-uc.a.run.app"
 };
