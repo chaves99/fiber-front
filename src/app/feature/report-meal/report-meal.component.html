@@ -1,9 +1,5 @@
 @if (report) {
-<!-- <mat-list *ngFor="let each of report.mealDays">
-    <mat-list-item>{{ each.day }}</mat-list-item>
-    <mat-divider></mat-divider>
-</mat-list> -->
-<mat-accordion *ngFor="let each of report.mealDays" >
+<mat-accordion *ngFor="let each of report.mealDays">
     <mat-expansion-panel hideToggle style="margin-bottom: 5px;">
         <mat-expansion-panel-header>
             <mat-panel-title>

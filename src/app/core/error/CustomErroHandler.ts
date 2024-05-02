@@ -22,7 +22,7 @@ export class CustomErrorHandler implements ErrorHandler {
             if (error instanceof HttpErrorResponse) {
                 if (error.status > 404 || error.status < 404) {
                     console.log(error);
-                    this.snackBar.open(`status:${error.status} | message:${error.message}`, 'OK', { duration: 2000 });
+                    this.snackBar.open('you were logged out', 'OK', { duration: 5000 });
                     this.router.navigateByUrl('feature/login');
                     this.storageService.clearUser();
                 }

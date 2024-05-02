@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { URL } from "@core/constants/backend";
 import { SeasonCreateModel, SeasonModel } from "@core/models/season.model";
 import { Observable } from "rxjs";
+import { environment } from "src/environments/environment";
 
 @Injectable({ providedIn: 'root' })
 export class SeasonService {
@@ -13,27 +13,27 @@ export class SeasonService {
 
     getByIdUser(idUser: number): Observable<SeasonModel[]> {
         return this.http
-            .get<SeasonModel[]>(`${URL}/season/user/${idUser}`);
+            .get<SeasonModel[]>(`${environment.apiUrl}/season/user/${idUser}`);
     }
 
     getActiveByIdUser(idUser: number): Observable<SeasonModel> {
         return this.http
-            .get<SeasonModel>(`${URL}/season/active/${idUser}`);
+            .get<SeasonModel>(`${environment.apiUrl}/season/active/${idUser}`);
     }
 
     create(model: SeasonCreateModel): Observable<SeasonModel> {
         return this.http
-            .post<SeasonModel>(`${URL}/season`, model);
+            .post<SeasonModel>(`${environment.apiUrl}/season`, model);
     }
 
     updateFinalDate(dateText: string, seasonId: number): Observable<SeasonModel> {
         return this.http
-            .put<SeasonModel>(`${URL}/season/final-date/${seasonId}`, dateText);
+            .put<SeasonModel>(`${environment.apiUrl}/season/final-date/${seasonId}`, dateText);
     }
 
     getSeasonById(id: number): Observable<SeasonModel> {
         return this.http
-            .get<SeasonModel>(`${URL}/season/${id}`);
+            .get<SeasonModel>(`${environment.apiUrl}/season/${id}`);
     }
 
 }

@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { URL } from "@core/constants/backend";
 import { FullUserModel, UpdateUserModel } from "@core/models/user.model";
 import { Observable } from "rxjs";
+import { environment } from "src/environments/environment";
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -13,22 +13,22 @@ export class UserService {
 
     getById(id: number): Observable<FullUserModel> {
         return this.http
-            .get<FullUserModel>(`${URL}/user/${id}`);
+            .get<FullUserModel>(`${environment.apiUrl}/user/${id}`);
     }
 
     updateById(model: UpdateUserModel, id: number): Observable<FullUserModel> {
         return this.http
-            .put<FullUserModel>(`${URL}/user/${id}`, model);
+            .put<FullUserModel>(`${environment.apiUrl}/user/${id}`, model);
     }
 
     getAll(): Observable<FullUserModel[]> {
         return this.http
-            .get<FullUserModel[]>(`${URL}/user`);
+            .get<FullUserModel[]>(`${environment.apiUrl}/user`);
     }
 
     create(user: FullUserModel): Observable<FullUserModel> {
         return this.http
-            .post<FullUserModel>(`${URL}/user`, user);
+            .post<FullUserModel>(`${environment.apiUrl}/user`, user);
     }
 
 }

@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.fiber',
-  appName: 'fiber',
+  appName: 'Fiber',
   webDir: 'dist/fiber-front/browser',
   server: {
     androidScheme: 'https'
