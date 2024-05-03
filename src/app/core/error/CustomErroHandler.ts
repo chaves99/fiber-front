@@ -14,9 +14,6 @@ export class CustomErrorHandler implements ErrorHandler {
         private storageService: StorageService
     ) { }
 
-    /**
-     * The problem of statusCode is not in the backend
-     */
     handleError(error: any): void {
         this.zone.run(() => {
             if (error instanceof HttpErrorResponse) {
@@ -30,7 +27,7 @@ export class CustomErrorHandler implements ErrorHandler {
             if (error instanceof Error) {
                 // this.snackBar.open(`cause:${error.cause} message:${error.message}`, 'OK');
                 throw error;
-            }
+            } 
         });
     }
 }
